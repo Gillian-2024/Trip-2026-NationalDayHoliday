@@ -1,0 +1,1047 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大湾区十日</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+
+<style>
+:root{
+  --paper:#FCFCFB; --surface:#FFFFFF; --surface-2:#F4F5F3;
+  --ink:#15191A; --ink-2:#5A625F; --ink-3:#8A918E;
+  --line:#E3E6E2; --line-2:#EFF1EE;
+  --accent:#0E6E5A; --accent-soft:#E7F2EE;
+  --warn:#A0521A; --warn-soft:#FDF4E9; --warn-line:#EFDCC5;
+  --solo:#6A4CA6; --solo-soft:#F4F0FB; --solo-line:#DFD6F1;
+  --ok:#2E7A4C;
+  --f-body:'Noto Sans SC',system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1213; --surface:#171B1C; --surface-2:#1E2324;
+    --ink:#E8ECEB; --ink-2:#9EA6A4; --ink-3:#717976;
+    --line:#282E2F; --line-2:#202627;
+    --accent:#5AC7AF; --accent-soft:#122B26;
+    --warn:#E09A63; --warn-soft:#2A1F14; --warn-line:#463322;
+    --solo:#B49CE0; --solo-soft:#1F1A2A; --solo-line:#372E4A;
+    --ok:#74C48D;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1213; --surface:#171B1C; --surface-2:#1E2324;
+  --ink:#E8ECEB; --ink-2:#9EA6A4; --ink-3:#717976;
+  --line:#282E2F; --line-2:#202627;
+  --accent:#5AC7AF; --accent-soft:#122B26;
+  --warn:#E09A63; --warn-soft:#2A1F14; --warn-line:#463322;
+  --solo:#B49CE0; --solo-soft:#1F1A2A; --solo-line:#372E4A;
+  --ok:#74C48D;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--f-body); font-size:15px; line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  padding-block:0 72px; overflow-wrap:break-word;
+}
+.wrap{max-width:760px;margin:0 auto;padding-inline:18px}
+
+h1,h2,h3,h4{font-family:var(--f-body);text-wrap:balance;margin:0;line-height:1.35}
+h1{letter-spacing:-.02em}
+h2,h3{letter-spacing:-.01em}
+p{margin:0}
+a{color:var(--accent)}
+
+.hero{padding-block:44px 26px}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.hero h1{font-size:clamp(32px,8.5vw,44px);font-weight:700;letter-spacing:-.015em;margin-block:10px 8px}
+.lede{color:var(--ink-2);font-size:15px;max-width:46ch}
+.lede b{color:var(--ink);font-weight:500}
+.stats{display:flex;flex-wrap:wrap;gap:24px;margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
+.stat-v{font-family:var(--f-mono);font-size:21px;font-weight:600;letter-spacing:-.02em;display:block;line-height:1.2}
+.stat-k{font-size:11.5px;color:var(--ink-3);letter-spacing:.06em}
+
+.sec{margin-top:52px}
+.sec-hd{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.sec-hd h2{font-size:20px;font-weight:700}
+.sec-hd .n{font-family:var(--f-mono);font-size:12px;color:var(--ink-3)}
+
+.todo{list-style:none;padding:0;margin:0}
+.todo li{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line-2)}
+.todo input{appearance:none;flex:0 0 auto;width:17px;height:17px;margin-top:4px;border:1.5px solid var(--ink-3);border-radius:4px;cursor:pointer;position:relative;background:transparent}
+.todo input:checked{background:var(--accent);border-color:var(--accent)}
+.todo input:checked::after{content:"";position:absolute;left:5px;top:1.5px;width:4px;height:8px;border:solid var(--paper);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.todo input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.todo label{cursor:pointer;flex:1;min-width:0}
+.todo input:checked + label{color:var(--ink-3);text-decoration:line-through;text-decoration-color:var(--line)}
+.todo .when{font-family:var(--f-mono);font-size:11px;font-weight:600;color:var(--warn);display:inline-block;margin-right:7px}
+.todo em{display:block;font-style:normal;color:var(--ink-2);font-size:13.5px;margin-top:1px}
+
+.tw{overflow-x:auto;margin-inline:-18px;padding-inline:18px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:520px}
+th{text-align:left;font-weight:600;font-size:11px;letter-spacing:.08em;color:var(--ink-3);padding:0 12px 9px 0;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line-2);vertical-align:top}
+td:first-child{font-family:var(--f-mono);font-size:12px;white-space:nowrap;color:var(--ink-2)}
+td.city{font-weight:600;white-space:nowrap}
+td .km{font-family:var(--f-mono);font-size:12px;color:var(--accent);font-weight:600}
+
+.day{padding-block:38px;border-top:1px solid var(--line)}
+.day-hd{display:flex;gap:14px;align-items:flex-start}
+.day-no{font-family:var(--f-mono);font-size:12px;font-weight:600;color:var(--accent);border:1.5px solid var(--accent);border-radius:5px;padding:2px 7px;flex:0 0 auto;margin-top:5px}
+.day-hd h3{font-size:21px;font-weight:700;letter-spacing:-.01em}
+.day-hd h3 span{font-family:var(--f-body);font-size:12.5px;font-weight:400;color:var(--ink-3);margin-left:5px}
+.thesis{color:var(--ink-2);font-size:14px;margin-top:3px}
+.day-nums{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pill{font-size:11.5px;padding:3px 9px;border-radius:20px;background:var(--surface);border:1px solid var(--line);color:var(--ink-2)}
+.pill b{font-family:var(--f-mono);color:var(--ink);font-weight:600}
+.pill.solo{background:var(--solo-soft);border-color:var(--solo-line);color:var(--solo);font-weight:600}
+.pill.duo{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:600}
+
+
+.tl{list-style:none;padding:0;margin:20px 0 0}
+.tl li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:14px;padding:9px 0;border-bottom:1px solid var(--line-2)}
+.tl li:last-child{border-bottom:0}
+.tl .t{font-family:var(--f-mono);font-size:12.5px;font-weight:600;color:var(--accent);padding-top:2px}
+.tl .c{font-size:14.5px;min-width:0}
+.tl .c small{display:block;color:var(--ink-2);font-size:13px;margin-top:2px;line-height:1.65}
+.tl .c .mv{display:inline-block;font-family:var(--f-mono);font-size:11px;line-height:1.55;color:var(--ink-3);border:1px solid var(--line);border-radius:4px;padding:1px 6px;margin:3px 0 3px 3px;max-width:100%}
+
+.blk{margin-top:20px;padding:14px 16px;border-radius:10px;font-size:14px}
+.blk h4{font-family:var(--f-body);font-size:11.5px;letter-spacing:.09em;font-weight:700;margin:0 0 9px}
+.blk ul{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+.blk li{padding-left:16px;position:relative;line-height:1.7}
+.blk li::before{content:"";position:absolute;left:2px;top:.65em;width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.5}
+.blk.warn{background:var(--warn-soft);border:1px solid var(--warn-line)}
+.blk.warn h4{color:var(--warn)}
+.blk.warn li::before{background:var(--warn);opacity:.85}
+.blk.eat{background:var(--surface-2);border:1px solid var(--line-2)}
+.blk.eat h4{color:var(--accent)}
+.blk.eat li::before{background:var(--accent);opacity:.7}
+.blk.alt{background:var(--solo-soft);border:1px solid var(--solo-line)}
+.blk.alt h4{color:var(--solo)}
+.blk.alt li::before{background:var(--solo);opacity:.7}
+.blk .shop{font-family:var(--f-mono);font-size:12.5px;font-weight:600;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:1px 6px}
+.blk .on{font-size:11px;color:var(--ok);border:1px solid var(--ok);border-radius:4px;padding:0 5px;margin-left:6px;white-space:nowrap;opacity:.9}
+.blk .no{font-size:11px;color:var(--warn);border:1px solid var(--warn);border-radius:4px;padding:0 5px;margin-left:6px;white-space:nowrap;opacity:.9}
+.blk .tel{font-family:var(--f-mono);font-size:11.5px;color:var(--ink-3)}
+
+.note{font-size:13px;color:var(--ink-2);margin-top:14px;line-height:1.7}
+.dl{margin-top:14px}
+.dl div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;padding:9px 0;border-bottom:1px solid var(--line-2);font-size:13.5px;align-items:baseline}
+.dl div:last-child{border-bottom:0}
+.dl .v{font-family:var(--f-mono);font-weight:600;color:var(--ink);white-space:nowrap}
+h3.sub{font-size:15px;margin:30px 0 0;font-family:var(--f-body);font-weight:700}
+footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);line-height:1.8}
+[hidden]{display:none!important}
+
+/* ---------- 日程切换条 ---------- */
+.daynav{
+  position:sticky;top:0;z-index:20;background:var(--paper);
+  border-bottom:1px solid var(--line);margin-inline:-18px;padding:8px 0;
+}
+.chips{display:flex;gap:6px;flex-wrap:wrap;padding-inline:18px}
+.chips + .chips{margin-top:6px}
+.chip{
+  flex:0 0 auto;font-family:var(--f-body);font-size:12.5px;font-weight:600;
+  line-height:1.3;padding:6px 11px;border-radius:8px;border:1px solid var(--line);
+  background:var(--surface);color:var(--ink-2);cursor:pointer;
+  transition:background .12s,color .12s,border-color .12s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chip[aria-current="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.chips-days .chip{flex:1 1 0;min-width:0;padding:5px 2px;text-align:center}
+.chip em{display:block;font-family:var(--f-mono);font-size:9.5px;font-style:normal;font-weight:400;opacity:.6;margin-top:1px}
+
+/* ---------- 上/下一天 ---------- */
+.pager{display:flex;gap:10px;margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
+.pager button{
+  flex:1;font-family:var(--f-body);font-size:13.5px;padding:12px 14px;border-radius:9px;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;text-align:left;
+}
+.pager button:hover{border-color:var(--accent)}
+.pager button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.pager button[disabled]{opacity:.35;cursor:default}
+.pager .k{display:block;font-family:var(--f-mono);font-size:11px;color:var(--ink-3);margin-bottom:2px}
+.pager .nx{text-align:right}
+
+@media (max-width:480px){
+  .dl div{grid-template-columns:minmax(0,1fr);gap:1px;padding:10px 0}
+  .dl .v{white-space:normal}
+}
+@media (max-width:480px){
+  .dl div{grid-template-columns:minmax(0,1fr);gap:1px;padding:10px 0}
+  .dl .v{white-space:normal}
+}
+@media (max-width:420px){
+  .tl li{grid-template-columns:50px minmax(0,1fr);gap:11px}
+  .day-hd{flex-wrap:wrap}
+  .hero-static{padding-block:26px 16px}
+  .hero-static h1{font-size:28px}
+  .stats{gap:16px;margin-top:18px;padding-top:14px}
+  .stat-v{font-size:18px}
+  .chip{padding:6px 9px;font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="hero hero-static">
+    <h1>大湾区十日</h1>
+</header>
+
+<nav class="daynav" aria-label="日程切换">
+  <div class="chips">
+    <button class="chip" data-go="overview">总览</button>
+    <button class="chip" data-go="todo">准备</button>
+    <button class="chip" data-go="booking">预约</button>
+    <button class="chip" data-go="risks">风险</button>
+    <button class="chip" data-go="emergency">应急</button>
+    <button class="chip" data-go="wish">期望</button>
+  </div>
+  <div class="chips chips-days">
+    <button class="chip" data-go="d1">D1<em>9/27</em></button>
+    <button class="chip" data-go="d2">D2<em>9/28</em></button>
+    <button class="chip" data-go="d3">D3<em>9/29</em></button>
+    <button class="chip" data-go="d4">D4<em>9/30</em></button>
+    <button class="chip" data-go="d5">D5<em>10/1</em></button>
+    <button class="chip" data-go="d6">D6<em>10/2</em></button>
+    <button class="chip" data-go="d7">D7<em>10/3</em></button>
+    <button class="chip" data-go="d8">D8<em>10/4</em></button>
+    <button class="chip" data-go="d9">D9<em>10/5</em></button>
+    <button class="chip" data-go="d10">D10<em>10/6</em></button>
+  </div>
+</nav>
+
+<section class="sec" id="todo" data-panel="todo">
+  <div class="sec-hd"><h2>行前准备</h2><span class="n">待办确认一条删一条；下面是通关与交通卡的做法</span></div>
+
+  <h3 class="sub">行前准备 · 出发前</h3>
+  <ul class="todo">
+    <li><input type="checkbox" id="t6"><label for="t6"><span class="when">出发前</span>检查<b>港澳通行证 + 香港/澳门签注各一次</b><em>两地的签注是分开的，缺一个就去不了对应的那天。</em></label></li>
+    <li><input type="checkbox" id="t7"><label for="t7"><span class="when">出发前</span>装 App<em>我的天文台 MyObservatory（香港天气，会推送警告）· 澳門氣象局 SMG · 铁路 12306 · 美团外卖（人才公园无人机外卖）· Google Maps（港澳导航比高德准）· 美丽深圳（若要用公园停车预约）</em></label></li>
+    <li><input type="checkbox" id="t8"><label for="t8"><span class="when">出发前</span>准备支付方式<em>深圳/上海/广州地铁：微信乘车码 · 香港：八达通（或支付宝，走紫色闸机）· 澳门：公交现金或扫码，轻轨自助售票机只收澳门元现金，客服中心可刷支付宝/微信/信用卡</em></label></li>
+    <li><input type="checkbox" id="t20"><label for="t20"><span class="when">出发前</span>把<b>八达通</b>加进 Apple 钱包<em>⚠️ <b>落马洲站、罗湖站不发售实体租用版八达通</b>——正好是你这次进出香港用的两个站。所以出发前先在「钱包 App → 添加交通卡 → 搜八达通」开好卡并充值，到了直接刷。</em></label></li>
+</ul>
+
+  <h3 class="sub">路上 · 出发前 1–2 天</h3>
+  <ul class="todo">
+    <li><input type="checkbox" id="t10"><label for="t10"><span class="when">9/29–9/30</span>重查台风与天气<em>10/4–10/6 是官方明示的「不确定窗口」，而你的澳门正好在里面。查香港天文台、澳门 SMG、广东天气。八号风球下横琴、拱北、港珠澳大桥会同时停摆。</em></label></li>
+    <li><input type="checkbox" id="t11"><label for="t11"><span class="when">出发前 1–2 天</span>确认 10/4 澳门烟花场次有无变更<em>官方节目表标注「schedule is subject to change」。查 fireworks.macaotourism.gov.mo 或澳门旅游局新闻稿。</em></label></li>
+    <li><input type="checkbox" id="t12"><label for="t12"><span class="when">10/5 晚</span>确认 10/6 走不走顺德（默认走）<em>两案行李处理不同：走顺德要先在 10/6 早上把行李存到广州南站；不走就 10/6 直接从北京路去机场。</em></label></li>
+  </ul>
+
+  <h3 class="sub">证件与通关</h3>
+
+  <div class="blk eat"><h4>港澳这两段都不需要买票</h4><ul>
+    <li><b>深圳 ⇄ 香港</b>：走陆路口岸（福田进 / 罗湖出）。拿<b>港澳通行证</b>排队过关，<b>不预约、不买票</b>（2023 年起已取消口岸预约制）。过完是香港侧地铁站，刷<b>八达通</b>进站。</li>
+    <li><b>珠海 ⇄ 澳门</b>：走<b>横琴口岸</b>（24 小时），刷证 + 采生物特征过关，<b>不买票</b>。过完轻轨在口岸地底，<b>现场买票</b>。</li>
+    <li><b>要提前准备的只有两样</b>：港澳通行证 + 港、澳两次签注（⚠️ 是分开的两次），和一张八达通。</li>
+    <li>这两天的景点全免费，没有可下单的东西。</li>
+  </ul></div>
+
+
+  <div class="blk eat"><h4>香港（10/2）· 走陆路口岸</h4><ul>
+    <li><b>出发前确认</b>：港澳通行证在有效期内，且<b>香港签注</b>有效（一次即可）。</li>
+    <li><b>去程 · 福田口岸</b>（6:30 开闸）：跟着人流排队 → <b>刷证 + 按指纹</b> → 过完是香港侧的<b>落马洲站</b>。<b>不需要预约、不需要买票。</b></li>
+    <li>落马洲站刷卡进站（八达通或支付宝乘车码）→ 东铁线 → 红磡 → 换屯马线 → 尖东站。</li>
+    <li><b>回程 · 罗湖</b>：中环 → 红磡 → 东铁线 → 罗湖站 → 出站过关 → 罗湖口岸 → <b>1 号线直达会展中心</b>。</li>
+    <li>⚠️ <b>入境时发的白色小纸条随身带着，别丢。</b></li>
+  </ul></div>
+
+  <div class="blk eat"><h4>澳门（10/4）· 横琴口岸往返</h4><ul>
+    <li><b>出发前确认</b>：<b>澳门签注</b>有效 —— 它和香港签注是<b>分开的两次</b>，缺一个就去不了那一天。</li>
+    <li><b>去程</b>：横琴口岸 <b>24 小时</b>，走旅检大厅，<b>合作查验、一次放行</b> —— 只排一次队、读一次证、采集一次生物特征。</li>
+    <li>过完在澳门侧，<b>轻轨横琴站就在口岸地底</b>，下扶梯即到。</li>
+    <li>⚠️ <b>澳门轻轨自助售票机只收澳门元现金</b>；<b>客服中心可刷支付宝/微信/信用卡</b>；<b>莲花站 2026-09 起已换新闸机，可能已能扫乘车码，到站看一眼</b>。路线：横琴站 → 莲花站 → 站内换氹仔线 → 妈阁。</li>
+    <li><b>回程</b>：氹仔海洋大马路 → 步行至轻轨<b>海洋站</b> → 莲花站 → 横琴站 → 过关回珠海。</li>
+  </ul></div>
+
+  <h3 class="sub">交通卡</h3>
+
+  <div class="blk eat"><h4>香港 · 八达通（最该提前办的）</h4><ul>
+    <li><b>iPhone</b>：钱包 App → 添加交通卡 → 搜「八达通」→ 直接开卡充值。地铁、巴士、天星小轮、便利店都能刷。</li>
+    <li><b>或</b>买实体租用版八达通：实付 <b>HK$200</b>（按金 50 + 首次储值 150）。⚠️ <b>落马洲站、罗湖站不发售</b>——正好是你这次进出香港用的两个站，所以优先用 iPhone 钱包开卡。</li>
+    <li>不支持八达通的地方用支付宝乘车码（走紫色闸机，扣人民币）。</li>
+    <li>⚠️ <b>别买 HK$75 的「游客全日通」</b>——落马洲站买不到，且不覆盖罗湖/落马洲段。</li>
+  </ul></div>
+
+  <div class="blk eat"><h4>内地三市</h4><ul>
+    <li><b>深圳 / 上海 / 广州地铁</b>：用<b>微信乘车码</b>（深圳的支付宝可用性查不到官方来源，别赌）。</li>
+    <li>上海地铁<b>按次付即可</b>——9/27、9/28 各约 4 段、合计约 ¥12–14，<b>不到 ¥18 一日票的价，不用买</b>。</li>
+  </ul></div>
+
+  <div class="blk eat"><h4>澳门</h4><ul>
+    <li><b>轻轨</b>：车站自助机现场买票，<b>不能用乘车码</b>。</li>
+    <li><b>公交</b>：现金 MOP 6（不设找续、自备零钱、可用港币），或支付宝/微信扫码 MOP 6。</li>
+  </ul></div>
+
+  <h3 class="sub">上网</h3>
+  <div class="blk eat"><ul>
+    <li>港澳用 <b>eSIM</b> 最省事（淘宝 ¥7.5 起，或买运营商境外流量包）。<b>境外流量一般是「识别到你入境后才开始计时」</b>，可提前买好。</li>
+    <li>香港预付费实体卡自 2022 年起需实名登记；eSIM 不用。</li>
+    <li>港澳导航用 <b>Google Maps</b> 比高德准；澳门巴士可配 DSAT App 看报站。</li>
+  </ul></div>
+
+
+  <h3 class="sub">装备</h3>
+  <div class="blk eat"><ul>
+    <li><b>证件</b>：港澳通行证（含港、澳两次签注，<b>是分开的两次</b>）+ <b>身份证原件</b>。证件<b>拍照存手机 + 发一份到自己邮箱</b>。</li>
+    <li><b>现金</b>：港币（天星小轮、部分小店只收现金）· 澳门币（公交 MOP 6 不设找续、可用港币）· 人民币少带。三地合计约 1000–1500 元等值够用。</li>
+    <li><b>充电宝</b>——港澳一天十几个小时在外，必带（20000mAh 以内可上飞机）。</li>
+    <li><b>转换插头</b>：香港用<b>英标 G 型三脚</b>，澳门多为英标 + 欧标混合。酒店一般会提供，自己带一个更稳。多口充电头 + 数据线（两人共用）。</li>
+    <li><b>薄外套</b>：太平山顶风大，日落前后温差明显；跨境车厢与商场冷气也足。</li>
+    <li><b>好走的鞋</b>——每天 7–15 公里。<b>澳门疯堂斜巷有坡度</b>，别穿新鞋。<b>伞</b>：10 月初华南仍在雨季尾。</li>
+    <li><b>小三脚架</b>：珠海日月贝拍海面倒影、澳门烟花都要用。提前熟悉手机夜景模式（卢吉道、外滩、龙环葡韵都是弱光）。</li>
+    <li><b>常备药</b>：肠胃药、感冒药、创可贴（脚容易起泡）、晕车药。</li>
+    <li>进教堂（石室外观、圣老楞佐堂等）不能短裤短裙、无袖、拖鞋。</li>
+  </ul></div>
+</section>
+
+<section class="sec" id="booking" data-panel="booking">
+  <div class="sec-hd"><h2>预约</h2><span class="n">出发前要动手的 6 件</span></div>
+
+  <p class="note">全线唯一能主动消灭排队和扑空的动作。<b>约不到的，按各条备注里的备选走，不影响主线。</b></p>
+
+  <ul class="todo">
+          <li><input type="checkbox" id="t14"><label for="t14"><span class="when">出发前</span>预约<b>粤剧艺术博物馆</b>（10/5，可选）<em>免费、走公众号预约。它是 D9 的顺路可选项，约不到直接跳过，不影响主线。</em></label></li>
+        <li><input type="checkbox" id="t15"><label for="t15"><span class="when">出发前</span>预约<b>深圳大梅沙</b>（10/1）<em>走公众号「i盐田」提前一周约。⚠️ 但 2025 年起有「入园预约已暂停」的报道、人流信息改由「梅沙悦游通」发布——<b>两个号都查一遍，以当天口径为准</b>。</em></label></li>
+        <li><input type="checkbox" id="t16"><label for="t16"><span class="when">出发前</span>确认<b>上海的三个点</b>（9/27–9/29）<em>徐家汇书院（要不要预约，信源打架）、徐家汇观象台旧址（只在特定场次）、上海自来水科技馆（仅周二开，电话 021-65473329）。<b>都先在小程序或电话上确认。</b></em></label></li>
+        <li><input type="checkbox" id="t17"><label for="t17"><span class="when">出发前</span>确认<b>张园（9/28）与朵云书院（9/28 16:00–18:00）</b><em>张园 2022 开园公告为实名预约、且<b>10:00 才开</b>；朵云确认你约的时段仍然有效。</em></label></li>
+        <li><input type="checkbox" id="t18"><label for="t18"><span class="when">出发前</span>确认<b>深圳 ⇄ 香港 高铁候补结果</b><em>福田/深圳北 ⇄ 西九龙。候补到了就把 D6 换成高铁版；没到就走陆路口岸（福田进 / 罗湖出），现有安排不变。</em></label></li>
+        <li><input type="checkbox" id="t19"><label for="t19"><span class="when">出发前</span>把能订的餐厅<b>都订上</b><em>全线唯一能主动消灭排队的动作：<b>深圳太子粤菜坊</b>（走 OpenRice 线上订座）· <b>香港 Nonsense</b>（WhatsApp 6970 5943，<b>必须订位</b>，且只能走午市）· <b>澳门葡多利</b>（+853 6280 3992）· 澳门婆仔屋 ALBERGUE 1601（若要去）。</em></label></li>
+  </ul>
+</section>
+
+<section class="sec" id="overview" data-panel="overview">
+  <div class="stats" style="margin-top:0">
+    <div><span class="stat-v">10</span><span class="stat-k">天</span></div>
+    <div><span class="stat-v">7</span><span class="stat-k">个城市</span></div>
+    <div><span class="stat-v">101–113</span><span class="stat-k">公里步行</span></div>
+    <div><span class="stat-v">4</span><span class="stat-k">次跨境 / 过境</span></div>
+  </div>
+  <div class="sec-hd" style="margin-top:34px"><h2>十天总览</h2><span class="n">步行里程为估算，核心段为官方公布值</span></div>
+  <div class="tw">
+    <table>
+      <thead><tr><th>日期</th><th>城市</th><th>主轴</th><th>步行</th><th>住</th></tr></thead>
+      <tbody>
+        <tr><td>9/27 日</td><td class="city">上海</td><td>11:00 抵沪 · 静安寺理发 → 徐家汇源 → 17:00 金虹桥见朋友</td><td><span class="km">6–7</span></td><td>昌平路</td></tr>
+        <tr><td>9/28 一</td><td class="city">上海</td><td>静安段 → 衡复梧桐区 → 巨富长 → 朵云书院 → 外滩夜景</td><td><span class="km">13–15</span></td><td>昌平路</td></tr>
+        <tr><td>9/29 二</td><td class="city">上海</td><td>杨浦滨江 → 北外滩 → 苏州河 → 外滩源 → 外滩 → 南京路</td><td><span class="km">13–15</span></td><td>19:39 夜车</td></tr>
+        <tr><td>9/30 三</td><td class="city">深圳</td><td>后海连廊 → 人才公园 → 深圳湾海岸长走 → 海上世界</td><td><span class="km">14–15</span></td><td>会展中心</td></tr>
+        <tr><td>10/1 四</td><td class="city">深圳</td><td>梅拉尼亚小镇 → 大梅沙栈道 → 梅沙尖</td><td><span class="km">13–15</span></td><td>会展中心</td></tr>
+        <tr><td>10/2 五</td><td class="city">香港</td><td>尖沙咀 → 天星小轮 → 中环 → 太平山卢吉道</td><td><span class="km">8–9</span></td><td>深圳</td></tr>
+        <tr><td>10/3 六</td><td class="city">珠海</td><td>圆明新园 → 情侣路日落线 → 日月贝</td><td><span class="km">7–8</span></td><td>横琴</td></tr>
+        <tr><td>10/4 日</td><td class="city">澳门</td><td>世遗半岛 → 东望洋 → 氹仔 → 烟花闭幕场</td><td><span class="km">9–10</span></td><td>横琴</td></tr>
+        <tr><td>10/5 一</td><td class="city">广州</td><td>东山口 → 泮塘五约 → 永庆坊 → 沙面日落</td><td><span class="km">9–10</span></td><td>北京路</td></tr>
+        <tr><td>10/6 二</td><td class="city">顺德</td><td>大良老城 → 顺峰山 → 白云机场 T2 → 北京</td><td><span class="km">7</span></td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<main id="days">
+
+<!-- ============ D1 ============ -->
+<article class="day">
+  <div class="day-hd"><div class="day-no">D1</div><div>
+    <h3>9/27 <span>周日</span> · 上海</h3>
+    <p class="thesis">11:00 抵沪 · 静安寺理发 → 昌平路放行李 → 徐家汇源 → 17:00 金虹桥见朋友</p>
+  </div></div>
+  <div class="day-nums">
+    <span class="pill solo">一个人</span>
+    <span class="pill">步行 <b>6–7 km</b></span>
+    <span class="pill">住 昌平路</span>
+    <span class="pill">17:00 金虹桥</span>
+  </div>
+
+
+  <ul class="tl">
+    <li><span class="t">11:00</span><span class="c">抵上海站 → 静安寺<span class="mv">3号线 上海火车站 → 中潭路 → 镇坪路 → 站内换 7号线 → 静安寺 · 约 20 分</span><small>赤道 Hair Salon（静安寺店）——<b>静安区北京西路 1533 号 2 层 202 室</b>，静安寺站（2/7/14 号线）出站步行可达。<b>午饭在店里点外卖。</b></small></span></li>
+    <li><span class="t">12:45</span><span class="c">静安寺 → 昌平路<span class="mv">7号线 · 1 站约 3 分</span><small>回昌平路放行李，13:00 再出门。</small></span></li>
+    <li><span class="t">13:00</span><span class="c">出门 → 徐家汇<span class="mv">7号线 昌平路 → 常熟路 → 站内换 1号线 → 徐家汇 · 约 20 分</span></span></li>
+    <li><span class="t">13:25</span><span class="c">徐家汇源<span class="mv">步行约 2 km · 免费</span><small><b>上海的两个原点之一</b>——天主教、近代科学、印刷出版都从这儿开始，另一个是外滩。走法：<b>徐家汇书院</b>（漕溪北路 158 号，周二–周日 9:00–21:00）→ <b>徐家汇天主堂</b>（蒲西路 158 号，1910 年，远东第一大教堂）→ <b>徐家汇藏书楼</b>（漕溪北路 80 号，1847 年，上海现存最早的近代图书馆）→ <b>光启公园 + 徐光启墓 + 徐光启纪念馆</b>（南丹路 17 号，周二–周日 9:00–16:30）——<b>徐光启是明代科学家、《几何原本》的中译者，「徐家汇」这个地名就出自他家</b>。⚠️ <b>观象台旧址</b>（蒲西路 166 号，1872 年）只在 10:00、14:00 两场且须提前预约——<b>想进去就掐 14:00 那场。</b></small></span></li>
+    <li><span class="t">16:00</span><span class="c">徐家汇 → 金虹桥<span class="mv">11号线 徐家汇 → 江苏路 → 站内换 2号线 → 娄山关路 → 步行约 400m · 约 25 分</span></span></li>
+    <li><span class="t">16:30</span><span class="c">抵金虹桥商场<span class="mv">长宁区茅台路 179 号</span></span></li>
+    <li><span class="t">17:00</span><span class="c"><b>满来寿喜烧（金虹桥店）· 见朋友</b><span class="mv">金虹桥商场 LG1 层 001-002 · 021-33637776</span><small>饭后回昌平路：2 号线 娄山关路 → 静安寺 → 站内换 7 号线 → 昌平路，约 25 分。</small></span></li>
+  </ul>
+
+  <div class="blk warn"><h4>避坑</h4><ul>
+    <li><b>徐家汇源只有今天开得全。</b>明天（周一）书院、天主堂内部、徐光启纪念馆、观象台<b>全部闭馆，补不回来</b>——今天这 2.5 小时是唯一窗口。</li>
+    <li><b>徐家汇书院要不要预约，信源打架。</b>官方 2023-05 起口径是「免预约入馆、高峰限流」，但多份攻略（含 2026 年的）仍写要小程序预约。<b>出发前上「徐家汇书院」小程序看一眼</b>。今天周日，人比工作日多。</li>
+    <li><b>天主堂内部今天不开放</b>——它开的是周二至周六 9:00–16:00，周日和周一都关，只能看外立面。<b>藏书楼的开馆日三种口径打架</b>（上图 2025-11 公告：一楼展厅全年开放；徐家汇源官网：周一至周六；2021 年文汇：周一闭馆），到现场看告示，别为它折返。</li>
+    <li><b>17:00 那个约别迟到。</b>最晚 16:00 从徐家汇走，16:30 到金虹桥商场——满来在 <b>LG1</b>，从 2 号线娄山关路站步行约 400m。</li>
+  </ul></div>
+
+  <div class="blk eat"><h4>吃</h4><ul>
+    <li><span class="shop">满来寿喜烧（金虹桥店）</span><span class="on">17:00 见朋友</span><br>长宁区茅台路 179 号<b>金虹桥商场 LG1 层 001-002</b>，2 号线娄山关路站步行约 400m。<span class="tel">021-33637776</span></li>
+    <li><span class="shop">静安寺一带</span><span class="on">理发时就近</span><br>久光百货、芮欧百货那一片餐饮密，理完发想坐下吃也行。<b>具体店我没逐个核实过。</b></li>
+    <li><b>午饭</b>：在理发店点外卖（你自己安排，这里不重复）。</li>
+    <li>⚠️ <b>徐家汇源一带我没逐个核实过店</b>——徐家汇商圈（美罗城 B1、港汇恒隆、天钥桥路）餐饮密，就近进即可。</li>
+  </ul></div>
+</article>
+
+
+<!-- ============ D2 ============ -->
+<article class="day">
+  <div class="day-hd"><div class="day-no">D2</div><div>
+    <h3>9/28 <span>周一</span> · 上海</h3>
+    <p class="thesis">静安段 → 衡复梧桐区 → 巨富长 → 朵云书院（52 层）→ 外滩夜景</p>
+  </div></div>
+  <div class="day-nums">
+    <span class="pill solo">一个人</span>
+    <span class="pill">步行 <b>13–15 km</b></span>
+
+  </div>
+
+  <ul class="tl">
+    <li><span class="t">08:35</span><span class="c">出发<span class="mv">7号线 昌平路 → 静安寺 · 1 站约 3 分（也可以沿常德路直接走过去，约 1.3 km）</span><small><b>住昌平路，静安段就在家门口。</b></small></span></li>
+    <li><span class="t">08:45</span><span class="c">静安段 · 静安寺外观 → 南京西路<span class="mv">约 1 小时</span><small>先走静安寺和南京西路——<b>这一段不受张园开门时间限制</b>。</small></span></li>
+    <li><span class="t">10:00</span><span class="c">张园 + 丰盛里<span class="mv">约 40 分钟 · 张园 10:00 才开</span><small>张园是上海现存最完整的石库门建筑群。<b>⚠️ 它 10:00 才开（2022 开园公告：每日 10:00–22:00、实名预约），早到进不去，所以卡在 10:00 这一站。</b>张园和丰盛里都在茂名北路×威海路，紧邻南京西路站。</small></span></li>
+    <li><span class="t">10:40</span><span class="c">南京西路站 → 常熟路 → 步行进衡复<span class="mv">2号线 南京西路 → 静安寺 → 站内换 7号线 → 常熟路 · 2 站约 8 分；常熟路 → 淮海中路 → 武康大楼 约 1.5 km</span><small>⚠️ <b>静安段的终点是南京西路站，不是静安寺站</b>——张园和丰盛里在茂名北路×威海路，离静安寺约 1.3 km。<b>从南京西路站换乘，别走回静安寺。</b></small></span></li>
+    <li><span class="t">11:10</span><span class="c">武康大楼<span class="mv">淮海中路 1850 号</span><small>1924 年邬达克设计的法国文艺复兴式公寓。<b>看的是转角</b>——基地是个楔形，楼就顺着这个锐角立起来，从淮海中路和武康路两个方向看都是「船头」。官方在对面设了拍摄区「源点广场」，退让 3.6 米。</small></span></li>
+    <li><span class="t">11:40</span><span class="c">武康路（由南向北）：巴金故居 → 罗密欧阳台 → 武康庭 → 旅游咨询中心<span class="mv">约 950m</span><small><b>这一段看的是「还在住人的老洋房」</b>——一栋接一栋，中间夹着门洞和晾衣杆，不是布景。门牌自南向北递增：巴金故居（113 号，修缮中只看外观）→ 罗密欧阳台（210 号，居民住宅）→ 武康庭（376 号，里弄式院落）→ 旅游咨询中心（393 号甲，1912 年黄兴旧居「黄公馆」，有「武康大楼的朋友圈」展）。<b>走完正好到北端接华山路。</b></small></span></li>
+    <li><span class="t">12:30</span><span class="c">武康路北端接华山路 · 午餐<span class="mv">武康路全程 1183 米</span><small>顺路的 <b>夏朵十二篮（华山路 855 号）</b>就在这个路口；同址的夏朵餐厅（丁香店）可坐下。</small></span></li>
+    <li><span class="t">13:20</span><span class="c">复兴西路 → 五原路 → 安福路<span class="mv">约 900m · 安福路全长 862 米</span><small><b>这一段人比武康路少。</b>五原路是生活面最重的一截；安福路有上海话剧艺术中心（288 号，只看建筑）。</small></span></li>
+    <li><span class="t">13:50</span><span class="c">乌鲁木齐中路 → 新乐路 / 东湖路<span class="mv">约 800m</span><small><b>市井和洋房混得最彻底的一段</b>：乌鲁木齐中路是菜场和熟食店，新乐路、东湖路是老洋房——本地人日常走的路，不是景区。</small></span></li>
+    <li><span class="t">14:15</span><span class="c"><b>巨富长</b>：巨鹿路 → 长乐路 → 富民路<span class="mv">约 2.5 km</span><small><b>上海 City Walk 的经典三角</b>，三条平行的东西向小路。<b>看的是小店密度和老房子混在一起的状态</b>——也是本地人真正在走的路线。向东接陕西南路南下即到思南公馆——<b>不折返。</b></small></span></li>
+    <li><span class="t">14:55</span><span class="c">思南公馆<span class="mv">约 30 分钟 · 压缩</span><small><b>看的是成片保留的花园住宅，不是单栋。</b>51 幢保留建筑、37 幢优秀历史建筑，免费、无围栏，可以走进去。旁边就是复兴公园（今天时间紧，看情况取舍）。</small></span></li>
+    <li><span class="t">15:25</span><span class="c">新天地 → 陆家嘴<span class="mv">10号线 新天地 → 南京东路 → 站内换 2号线 → 陆家嘴 · 约 25 分</span></span></li>
+    <li><span class="t">16:00</span><span class="c"><b>朵云书院旗舰店</b><span class="mv">陆家嘴银城中路 501 号 · 上海中心 52 层 · 预约时段 16:00–18:00</span><small>⭐ <b>你约的时段正好是它最出片的窗口</b>（能拍到白天→黄昏→蓝调三阶段）。南北两个「好望角」观景角可看陆家嘴三件套与外滩万国建筑群，<b>需凭消费小票进入</b>（咖啡/甜点约 30–60 元/人）。</small></span></li>
+    <li><span class="t">18:00</span><span class="c">下楼 → 陆家嘴滨江 → 东昌路轮渡 → 金陵东路<span class="mv">轮渡约 10 分钟</span><small>从 239 米高空下来，再坐一趟 2 块钱的轮渡过江——<b>这是上海本地人的过江方式</b>，比地铁有意思，也是今天的收尾。</small></span></li>
+    <li><span class="t">18:45</span><span class="c">外滩（等亮灯）<small>17:44 日落、18:10 蓝调结束，与 19:00 亮灯不重合——<b>蓝调那一版你已经在朵云书院拍到了，这里拍的是灯火那一版。</b></small></span></li>
+    <li><span class="t">19:15</span><span class="c"><b>外滩亮灯</b><span class="mv">9 月景观照明 19:00 起</span></span></li>
+    <li><span class="t">20:00</span><span class="c">南京东路 → 昌平路<span class="mv">2号线 南京东路 → 静安寺 → 站内换 7号线 → 昌平路 · 约 18 分</span></span></li>
+  </ul>
+
+  <div class="blk warn"><h4>避坑</h4><ul>
+    <li><b>9/28 小雨、28–32℃</b>——今天 13–15 公里基本都在户外（衡复、巨富长）。<b>带伞、穿防滑的鞋</b>；朵云书院是室内落脚点，正好当中段歇脚。</li>
+    <li><b>9/28、9/29 都是工作日</b>（中秋假 9/25–27 结束、国庆 10/1 才开始）——<b>武康大楼和外滩这两天是全年最空的窗口之一</b>，不用抢机位。</li>
+    <li><b>张园 10:00 才开</b>，所以时间轴把静安寺和南京西路排在前面、张园卡在 10:00。<b>别照「先张园」的直觉走。</b></li>
+    <li><b>静安段周一全开</b>——静安寺是常驻寺庙（每日开放）、张园是开放街区、丰盛里和南京西路是商业，都不是「周一闭馆」那一类。<b>这也是把这一段挪到今天的原因。</b></li>
+    <li><b>周一闭馆的还有一批，今天全关：</b>上海邮政博物馆、中华艺术宫、PSA 当代艺术博物馆、上博人民广场馆、豫园。别排进去。上博东馆周一开，但它自 9/28 起书法馆、绘画馆、海上书画馆闭馆调整，只剩青铜馆等。</li>
+    <li><b>武康大楼 11 点后路口会满。</b>晴好周末武康路—安福路日均约 4 万人次、武康大楼周边日均 1–1.5 万。周一虽回落，11 点后仍会满——你 10:50 到，正好卡在变挤之前。</li>
+    <li><b>别站在机动车道上拍。</b>武康大楼最佳机位在斜对面路口或安全岛。</li>
+    <li><b>朵云书院的「好望角」要消费才能进</b>（约 30–60 元/人的咖啡或甜点）。不消费只能看店内书区，看不到那两个观景角。</li>
+    <li><b>今天看不到「蓝调天空 + 万国建筑灯火」同框。</b>9 月外滩 19:00 才亮灯，而蓝调窗口是 17:42–18:10，两者不重合——全网那些大片基本摄于 10 月到 4 月。<b>今天蓝调那一版在朵云书院拍（52 层，16:00–18:00），灯火那一版在外滩拍（19:15 后）。</b>等于用两个机位把「二选一」拆成了「都要」。</li>
+    <li>如果哪一段超时了，<b>优先压缩思南公馆和巨富长</b>——朵云书院的时段是硬约束，过点进不去。</li>
+  </ul></div>
+
+  <div class="blk eat"><h4>吃</h4><ul>
+    <li><span class="shop">夏朵十二篮（华山店）</span>（华山路 855 号）<span class="on">就在动线上</span><br>⚠️ 它是<b>烘焙店不是正餐</b>；同址的<b>夏朵餐厅（丁香店）</b>可坐下吃。<span class="tel">021-62128085</span></li>
+    <li><span class="shop">味香斋（雁荡路 14 号）</span><span class="on">就在动线上</span><br>人均 ¥22–30，<b>06:30–21:00 无午休无周休</b>，招牌麻酱面 ¥14 + 小牛汤，米其林推介。卡在「思南公馆 → 复兴公园」段。<b>⚠️ 会排</b>（澎湃报道过门口长队），店仅 37㎡、11 桌——<b>建议 06:30–11:00 或 14:00–17:00 去</b>。</li>
+    <li><span class="no">避开</span> <b>光明邨大酒家</b>（淮海中路 588 号）鲜肉月饼常年排队（中秋前后最凶；你 9/28 已过中秋），上海国资委都称它「长年排队…是淮海路上一道独特的风景线」——<b><b>在淮海中路东段、不在你今天的动线上</b></b>。另：<b>阿娘面馆（思南路 36 号）已于 2026-04 停业</b>，攻略里若有请删；安福路的 13DE MARZO 小熊咖啡要排 80 分钟。</li>
+    <li>⚠️ <b>静安段（静安寺—张园—南京西路）我没逐个核实过店</b>——那一带餐饮极密，就近进即可。</li>
+  </ul></div>
+</article>
+
+<!-- ============ D3 ============ -->
+<article class="day">
+  <div class="day-hd"><div class="day-no">D3</div><div>
+    <h3>9/29 <span>周二</span> · 上海</h3>
+    <p class="thesis">杨浦滨江 → 北外滩 → 苏州河 → 外滩源 → 外滩 → 南京路，收尾后 19:39 上夜车</p>
+  </div></div>
+  <div class="day-nums">
+    <span class="pill solo">一个人</span>
+    <span class="pill">步行 <b>13–15 km</b></span>
+    <span class="pill">19:39 发车</span>
+  </div>
+
+  <ul class="tl">
+    <li><span class="t">08:15</span><span class="c">出发<span class="mv">7号线 昌平路 → 镇坪路 → 站内换 4号线 → 杨树浦路 · 约 30 分</span></span></li>
+    <li><span class="t">08:55</span><span class="c">杨浦滨江「工业历程」线<span class="mv">官方里程约 2.8 km</span><small>黄浦码头旧址 → 上海船厂景观步道 → 英商怡和纱厂旧址 → <b>杨树浦水厂</b>（1883 年，中国第一座现代化水厂；厂区不对外，但厂内<b>上海自来水科技馆仅每周二开放</b>——<b>9/29 恰好命中</b>，全预约制，须提前电话约 <b>021-65473329</b>，凭身份证入场）→ 杨浦大桥。⚠️ <b>绿之丘 2026-06-24 起封闭施工（预计年内完成），顶楼观景台进不去</b>——直接跳过。官方媒体给这条线的标签就是「景美人少」。</small></span></li>
+    <li><span class="t">10:25</span><span class="c">继续西行：虹口滨江 → 北外滩<span class="mv">约 4 km · 全程沿江贯通</span><small><b>黄浦江北岸从杨树浦到外白渡桥是完整贯通的滨江步道</b>，这是今天长走的主体。途经上海船厂、秦皇岛路码头，进入<b>北外滩滨江绿地</b>：国客段观景平台（「巨蛋」+ 东方明珠同框）、<b>「魔都镜像」</b>（⚠️ 位置在<b>国航段</b>观景平台，不在国客段——栏杆扶手处嵌四色金属反光镜，镜头贴近镜面出镜像大片）、国际港务大厦旁斜坡（低角度仰拍，14:00–17:00 最出片）。</small></span></li>
+    <li><span class="t">12:15</span><span class="c">外白渡桥<small>苏州河第一座桥，现桥为 1907 年第三代钢桥。到这儿滨江长走结束。桥东北侧的<b>中国证券博物馆</b>（黄浦路 15 号，免费）就在这儿，顺路看一眼。</small></span></li>
+    <li><span class="t">12:30</span><span class="c">上海邮政博物馆<span class="mv">北苏州路 250 号</span><small><b>免费，个人参观无需预约。</b><b>看的就是这栋楼本身</b>——1924 年建成的折衷主义邮政大楼（1922 动工），二楼营业大厅当年号称「远东第一厅」。</small></span></li>
+    <li><span class="t">13:15</span><span class="c">苏州河绿道 · 虹口段 → 外滩源<span class="mv">约 1.5 km</span><small>官方称「共享街道 + 河畔客厅」，一岸四景：上海大厦／宝丽嘉／邮政大楼／河滨大楼。<b>北苏州路（吴淞路以西）无机动车，画面干净。</b>外滩源圆明园路、虎丘路一带有 20 株古树名木，含上海最古老广玉兰（约 200 年树龄）；<b>第三届上海国际光影节在此沿苏州河展陈 16 国艺术家作品（9/17–10/16，免费）</b>。</small></span></li>
+    <li><span class="t">14:00</span><span class="c">外滩 + 南段<span class="mv">约 1.5 km</span><small>沿江堤向南走到<b>十六铺码头 → 老码头创意园</b>。这一段比你印象里的外滩人少，且能一路看江。</small></span></li>
+    <li><span class="t">15:00</span><span class="c">南京东路 · 午餐</span></li>
+    <li><span class="t">15:50</span><span class="c">南京东路 → 人民广场 · CRAVE BAKERY<span class="mv">2号线 · 1 站；西藏中路 88 号，人民广场站 1 号口步行 270m</span><small>你提过的那家肉桂卷，当下午茶。</small></span></li>
+    <li><span class="t">16:30</span><span class="c">人民广场 → 昌平路<span class="mv">2号线 人民广场 → 静安寺 → 站内换 7号线 → 昌平路 · 约 18 分</span></span></li>
+    <li><span class="t">16:50</span><span class="c">回昌平路：取行李、整理、休息<small>到 18:30 出发前都有余量。</small></span></li>
+    <li><span class="t">18:30</span><span class="c"><b>从昌平路出发</b><span class="mv">7号线 昌平路 → 镇坪路 → 站内换 3号线 → 上海火车站 · 约 18 分</span><small>落地在<b>上海站北广场侧，北进站口就在北广场</b>，不用穿那条闷热的换乘通道。</small></span></li>
+    <li><span class="t">19:05</span><span class="c">抵达上海站<small><b>发站是「上海」</b>（静安区）；<b>提前 35 分钟足够</b>——高铁发车前 3–5 分钟停止检票，官方建议提前 25–30 分到站。</small></span></li>
+    <li><span class="t">19:39</span><span class="c"><b>D913</b> 发车 · 夜车往深圳</span></li>
+  </ul>
+
+  <div class="blk warn"><h4>避坑</h4><ul>
+    <li><b>9/29 小雨转阴、26–32℃</b>——杨浦滨江到北外滩这 8 公里<b>全程露天沿江，江风大，雨衣比伞好用</b>。真下大了就压缩滨江，把时间补给邮政博物馆和苏州河段。</li>
+    <li><b>上海邮政博物馆营业时间 9:00–17:00（16:00 停止入场）。</b>免费，个人参观无需预约。</li>
+    <li><b>外滩那一段人多到拍不了东西</b>（滨水区瞬时客流曾破 4 万人次）。今天的主战场是杨浦滨江、苏州河和外滩源——走到外滩观景平台看一眼就够。</li>
+  </ul></div>
+
+  <div class="blk eat"><h4>吃</h4><ul>
+    <li><span class="shop">大壶春（四川中路 136 号）</span><span class="on">就在动线上</span><br>人均 ¥28，<b>自助形式、生煎自取</b>，招牌鲜肉生煎、虾肉生煎、咖喱牛肉汤，米其林必比登。各源一致<b>无午休无周休</b>（具体开门时刻三源冲突）。卡在「外滩 → 南京东路」段，步行街东段 2–3 分钟。<span class="tel">021-63130155</span></li>
+    <li><span class="shop">德兴馆（广东路总店）</span><span class="on">就在动线上</span><br>广东路 471 号，人均 ¥43，1878 年创立、米其林收录，招牌德兴焖蹄面、鲜肉月饼 ¥6。<b>1 楼面馆常年人多，2 楼点菜相对宽松</b>——这是它优于同片区的关键。⚠️ 可能含午休——<b>你今天 15:00 才吃午饭，若正赶上午休就换大壶春（无午休）。</b><span class="tel">021-63522528</span></li>
+    <li><span class="shop">THE PRESS 申报馆店</span>（汉口路 309 号）<span class="on">就在动线上</span><br>1918 年申报馆大楼，人均 ¥132，距南京东路站步行 5 分钟。<b>⚠️ 两点：① 早午餐只在周末供应，你 9/29 是周二，吃不到 brunch 菜单；② 它确实是打卡地</b>——上海报业集团旗下媒体原文称「工作日午餐连着下午茶时间，如果不早些来，你喜欢的位置可能就没了」。<b>是「抢不到好位置」，不是门口排长队；工作日压力远小于周末。</b></li>
+    <li><span class="shop">CRAVE BAKERY &amp; COFFEE</span>（西藏中路 88 号）<span class="on">顺路 1 站</span><br>人均 ¥44，招牌肉桂卷。<b>人民广场站 1 号口步行 270m</b>——从南京东路坐 2 号线过去 1 站。<b>你提过的店，当下午茶。</b></li>
+    <li><span class="no">避开</span> 老正兴菜馆（青鱼秃肺要提前 2–3 天订）、老半斋（早餐人满为患）——两家与德兴馆同在福州路 300m 内，且都有午休。</li>
+  </ul></div>
+</article>
+
+<!-- ============ D4 ============ -->
+<article class="day">
+  <div class="day-hd"><div class="day-no">D4</div><div>
+    <h3>9/30 <span>周三</span> · 深圳</h3>
+    <p class="thesis">06:37 抵深圳北 · 后海片区 → 人才公园 → 深圳湾日落 → 海上世界</p>
+  </div></div>
+  <div class="day-nums">
+    <span class="pill solo">一个人</span>
+    <span class="pill">步行 <b>14–15 km</b></span>
+    <span class="pill">日落 <b>18:12</b></span>
+  </div>
+
+  <ul class="tl">
+    <li><span class="t">06:37</span><span class="c">抵深圳北站<span class="mv">4号线 深圳北 → 会展中心 · 直达</span><small>你住会展中心/岗厦一带，4 号线直达。<b>D913 于 06:37 抵达深圳北。</b></small></span></li>
+    <li><span class="t">07:15</span><span class="c">酒店寄存行李</span></li>
+    <li><span class="t">08:15</span><span class="c">后海片区<span class="mv">岗厦北 11号线 → 后海</span><small>四五个点<b>物理连通</b>，由 <b>2 公里「深圳湾大街」空中连廊</b>串起：深圳湾万象城 → 海岸城 → 后海汇 → 深圳湾文化广场。⚠️ <b>连廊到人才公园是断的</b>，最后一段要走地面斑马线过街。<b>不用下地面、随时能坐下、室内外可切换。</b></small></span></li>
+    <li><span class="t">11:00</span><span class="c">无人机外卖<span class="mv">人才公园空投柜</span><small>美团外卖 App → 左上角外卖 → 搜「无人机」→ 选匹配商圈 → <b>收货地址改成「美团人才公园无人机空投柜」</b> → 下单。柜子屏幕输手机尾号取餐。无需预约。<b>只在 11:00–17:40 运营。</b></small></span></li>
+    <li><span class="t">12:00</span><span class="c">深圳人才公园 + 深圳湾文化广场<small>「粉红大街」在深圳湾万象城 B 区 B1 层（<b>免费</b>）；<b>文化广场室内展馆要买票</b>（20–188 元），户外广场与屋顶草坡免费。人才公园的硫华菊花海 9–11 月开，西北门进 50 米小土坡，橙黄花海 + 春笋同框。星光桥最挤，<b>退到 π 桥或无忧广场</b>。</small></span></li>
+    <li><span class="t">14:30</span><span class="c"><b>深圳湾公园 · 海岸长走</b><span class="mv">滨海栈道 · 建议走 5 km 以上</span><small><b>今天长走的主体就是这一段。</b>深圳湾公园沿深圳湾北岸拉了一条十几公里的连续海滨栈道，全程平路、无机动车、一路看海和对岸香港。<b>从人才公园往西/往东任选一段走满 5 公里</b>，中途可在婚庆广场、观海栈桥、海风运动广场歇脚。日落 18:12。</small></span></li>
+    <li><span class="t">19:00</span><span class="c">海上世界<span class="mv">2号线 后海 → 海上世界 · 直达</span><small>蛇口太子路 32 号。<b>明华轮 1–2 层免费开放、无需预约</b>（3 层是剧院，演出票 580–680 元），10:00–22:00；甲板正对音乐喷泉，是俯拍喷泉的最佳位。同片区还有 K11 ECOAST。</small></span></li>
+    <li><span class="t">19:30</span><span class="c">音乐喷泉<span class="mv">19:30 / 20:00 / 20:30 / 21:00</span><small>⚠️ 时刻表各来源互相冲突，唯一共识是<b>周一检修停演</b>与「晚间约 19:30–21:30」。以景区当日公告为准。</small></span></li>
+    <li><span class="t">21:00</span><span class="c">回会展中心<span class="mv">2号线 → 世界之窗 → 换 1号线</span></span></li>
+  </ul>
+
+  <div class="blk warn"><h4>避坑</h4><ul>
+    <li><b>今天不要跑东部或光明区。</b>从深圳北到后海约 40–50 分钟，办完入住已 08:00 后；大梅沙单程 70–80 分钟、光明区 45–60 分钟。刚下过夜车跑这些等于自毁——<b>东部的体力留给明天。</b></li>
+    <li><b>今晚不要去人才公园或市民中心等灯光秀。</b>人才公园是每周五、六及法定节假日才亮（今天周三没有）；市民中心灯光秀 9/30 明确不放。</li>
+    <li><b>后海 → 海上世界直接坐 2 号线，直达。</b>萝卜快跑（无人驾驶）在南山有运营，但只能在固定站点上下车、等车常 20–30 分钟——当体验可以，别当交通工具用。</li>
+  </ul></div>
+
+  <div class="blk eat"><h4>吃</h4><ul>
+    <li><span class="shop">至正潮菜（深圳湾万象城店）</span><span class="on">就在动线上</span><br>A 区 L4 层 L410 铺，人均 ¥180，南山区潮汕菜热门榜第 3。招牌生腌膏蟹、卤水粉肝、老菜脯炒饭。<b>⚠️ 只查到 17:00–21:30 晚市，「有没有午市」多个来源都没写</b>——别把它当午餐的确定解。<b>午饭优先去下面那家潮汕大目（11:00–22:00 无午休）。</b></li>
+    <li><span class="shop">潮汕大目牛肉火锅（海岸城东座 2 层）</span><span class="on">就在动线上</span><br>人均 ¥101–150，<b>11:00–22:00 无午休</b>，招牌手打牛肉丸、吊龙。⚠️ 「手打生牛丸 17:00 后才供应」这条有矛盾信源（另有食评写全天供应），别当铁律。食评说「下午时段去人流较晚上少一点，不用等太久」→ 下午明显好排。</li>
+    <li><span class="shop">太子粤菜坊（蛇口太子路 132 号）</span><span class="on">蛇口 · 就在 D4 晚上的动线上</span><br>人均 ¥118，距海上世界站 A 口 200m，招牌清蒸老虎斑、蜜汁叉烧、金沙海虾红粉米肠。<b>⚠️ 有午休：09:30–14:00、17:00–22:00。</b>⭐ <b>可 OpenRice 线上订座</b>——今晚就在蛇口，这家能订座，比现场碰运气稳。</li>
+    <li><span class="shop">蛇口老字号德记烧腊饭店</span>（南水步行街 55 号）<span class="on">绕 2 站</span><br>东角头站 A 口 300m（海上世界站<b>往蛇口港方向再坐 2 站，同向不折返</b>）。<b>07:30–20:30 无午休</b>，烧腊快餐型，从 1996 年开在市场边的巷子里。</li>
+    <li><span class="no">避开</span> 头牌小厨·蛇口大排档（「每次嚟都好多人」）——同在蛇口，但等位不可控。今晚就走上面两家。</li>
+  </ul></div>
+</article>
+
+<!-- ============ D5 ============ -->
+<article class="day">
+  <div class="day-hd"><div class="day-no">D5</div><div>
+    <h3>10/1 <span>周四 · 国庆</span> · 深圳</h3>
+    <p class="thesis">梅拉尼亚小镇拍照 → 大梅沙看海 → 梅沙尖</p>
+  </div></div>
+  <div class="day-nums">
+    <span class="pill solo">一个人</span>
+    <span class="pill">步行 <b>13–15 km</b></span>
+    <span class="pill">2/8 号线一条线到底</span>
+  </div>
+
+  <ul class="tl">
+    <li><span class="t">09:00</span><span class="c">梅拉尼亚小镇<span class="mv">1号线 会展中心 → 世界之窗 · H1 出口步行 2–3 分</span><small>南山区深南大道 9037 号，<b>世界之窗景区外侧</b>（原「欧洲印象」，2024-07-26 改造后更名）。<b>免费、免预约、不需要买世界之窗大门票。</b>看点：橙白哥特式教堂、1:1 复刻布拉格天文钟（整点报时）、马卡龙彩色街巷、威尼斯运河倒影、白色廊桥。<b>纯逛 30 分钟，拍照要 1.5–2 小时。</b>18:30–19:00 全镇亮灯。</small></span></li>
+    <li><span class="t">11:30</span><span class="c">留在梅拉尼亚小镇拍透<small>世界之窗已排除，<b>省下的时间全给这里</b>——它是今天唯一的「人造欧洲」出片点，而且免费。18:30–19:00 全镇亮灯（今天你看不到，留给下次）。</small></span></li>
+    <li><span class="t">12:30</span><span class="c">往东海岸<span class="mv">2/8号线 世界之窗 → 大梅沙 · 直达不换乘 · 约 70–80 分</span><small>2 号线与 8 号线贯通运营，从世界之窗一路坐到海边。<b>这是全程最舒服的一段「一条线到底」。</b></small></span></li>
+    <li><span class="t">14:00</span><span class="c">大梅沙 + 盐田海滨栈道<span class="mv">免费 · ⚠️ 需预约 · 07:00–23:00</span><small><b>⚠️ 必须提前预约</b>：盐田区政府规定，旺季（5/1–10/7）及周末、法定节假日入园均需预约——走微信公众号<b>「i盐田」提前一周</b>约，凭身份证或二维码刷闸机。<br><b>别只待在沙滩上：盐田海滨栈道沿大鹏湾岸线拉得很长，是今天长走的第二段主体</b>，往小梅沙方向走，海景比沙滩里好、人也更散。</small></span></li>
+    <li><span class="t">16:30</span><span class="c">梅沙尖（可选，加 5–6 km 山路）<span class="mv">8号线 盐田路站 E 口 → 打车约 15 分至山海大观观景台</span><small><b>1–1.5 小时登顶</b>，山顶「云端观景台」2025-03-15 开放。免费、免预约、全天开放。⚠️ <b>云海专线走不了</b>：A 线上山方向只到 14:00–15:00（起点在<b>海山路总站</b>，不是盐田路站），C 线才是盐田路地铁站发车、上山也只到 14:00。<b>16:30 这个点没有专线车，只能打车或放弃。</b>⚠️ 753 米硬爬、国庆高温——<b>今天已经走了十几公里，这一段按体力决定要不要上。</b></small></span></li>
+    <li><span class="t">19:00</span><span class="c">回会展中心<span class="mv">2/8 号线贯通，原车直达，不用换乘</span><small>若还有力气，可去宝安中心区海滨广场看常规景观照明（每晚都有、人少）；欢乐谷夜场是工作日外唯一人流相对可控的选择。</small></span></li>
+  </ul>
+
+  <div class="blk warn"><h4>避坑</h4><ul>
+    <li><b>10/1 雷暴（12.6mm），而这一天你几乎全在户外。</b>大梅沙是海滩、梅沙尖是 753 米山脊——<b>雷雨中上梅沙尖有雷击风险，直接砍掉</b>，这个「可选」今天不用犹豫。大梅沙也下雨备案：缩短沙滩停留，走盐田海滨栈道一小段就提前回市区。</li>
+    <li><b>去梅拉尼亚小镇，认准「南山区 · 世界之窗站 H1 出口」。</b>沿深南大道 9037 号，在地铁站出来步行 2–3 分钟。<b>它在世界之窗景区外侧，不需要买世界之窗门票。</b></li>
+    <li><b>今天是深圳全年人流峰值。</b>梅拉尼亚小镇和大梅沙都是开放空间、人流可分散，但世界之窗地铁站那一段（你换乘的必经点）会非常挤——<b>穿过去就好，别停留。</b></li>
+    <li><b>大梅沙以走海滨栈道、玩水为主</b>，不要按「看日落」来规划——你到那儿是下午，而且它更出名的是清晨。</li>
+  </ul></div>
+
+  <div class="blk eat"><h4>吃</h4><ul>
+    <li><b>09:00–12:30 在南山世界之窗（市区西部），14:00 之后才到东部。</b>东部（大梅沙/盐田）的餐饮我没逐个核实过——景区内以简餐和海鲜大排档为主，就近进即可。</li>
+    <li><span class="no">避开</span> 79 号渔船（这条是南山/福田一带的店，<b>盐田没有分店</b>，本就不在你今天的动线上）。<b>梅拉尼亚小镇/世界之窗段未找到符合条件的店，这段建议只拍照，正餐留到晚上回市区后。</b></li>
+  </ul></div>
+</article>
+
+<!-- ============ D6 ============ -->
+<article class="day">
+  <div class="day-hd"><div class="day-no">D6</div><div>
+    <h3>10/2 <span>周五</span> · 香港</h3>
+    <p class="thesis">尖沙咀 → 天星小轮 → 中环人文 → 太平山卢吉道</p>
+    <p class="note" style="margin-top:8px">⚠️ <b>深圳 ⇄ 香港正在候补高铁票</b>（福田/深圳北 ⇄ 西九龙）。<b>其他行程不变</b>——下面按陆路口岸（福田进 / 罗湖出）写的，候补到了再换成高铁版。</p>
+  </div></div>
+  <div class="day-nums">
+    <span class="pill duo">两个人</span>
+    <span class="pill">步行 <b>8–9 km</b></span>
+    <span class="pill">日落 <b>18:10</b></span>
+    <span class="pill">回程 罗湖</span>
+  </div>
+
+  <ul class="tl">
+    <li><span class="t">08:30</span><span class="c">福田口岸过关<span class="mv">6:30 开闸</span><small><b>拿港澳通行证排队过关，不需要预约、不需要买票。</b>国庆按 30–60 分钟排队留。过关后东铁线到落马洲站，用<b>八达通</b>或支付宝乘车码。</small></span></li>
+    <li><span class="t">10:10</span><span class="c">尖沙咀海滨<span class="mv">东铁线 → 红磡 → 屯马线 → 尖东站 J2 出口</span><small>星光大道 24 小时免费、无需预约。<b>07:00–09:00 晨雾 + 金色晨光、游客稀少</b>，是全天人最少的窗口。同一段海滨上还有 K11 MUSEA（6 楼免费观景平台）与前九广铁路钟楼（1915 年，法定古迹）。</small></span></li>
+    <li><span class="t">11:30</span><span class="c">天星小轮 · 尖沙咀 → 中环<span class="mv">HK$5.0 · 8–9 分钟</span><small>10/2 是周五、非公众假期，正好按平日价（上层 HK$5.0）。坐上层、尽量靠船头。<b>它不是「景点」，是过海的交通工具</b>——砍掉反而更贵更慢。</small></span></li>
+    <li><span class="t">12:00</span><span class="c">中环码头 → 苏富比 → 圣约翰座堂<span class="mv">步行约 15 分钟</span><small>苏富比在中环干诺道中 8 号置地遮打（中环站 E 口，从中环码头步行 5 分钟）。<b>10/2 落在官方秋拍日程 9/29 与 10/8 之间的空档，大概率无新展</b>——定位成「路过进 15 分钟」。圣约翰座堂（花园道 4-8 号）1849 年建成、1996 年法定古迹，<b>免费、07:00–18:00</b>，<b>就在山顶缆车中环总站（花园道 33 号）隔壁，步行 1–2 分钟</b>。</small></span></li>
+    <li><span class="t">13:00</span><span class="c">半山扶梯 → 大馆<span class="mv">约 2 小时</span><small>半山扶梯<b>下行 06:00–10:00、上行 10:00–23:59</b>。大馆 08:00–23:00，<b>免费入场</b>，前中区警署建筑群。嘉咸街壁画（嘉咸街 46 号）实况是「转角一小面约 5 公尺的墙」且已斑驳褪色，顺路 10 分钟即可。</small></span></li>
+    <li><span class="t">15:00</span><span class="c">城巴 15 上山<span class="mv">中环交易广场 → 山顶 · HK$13 · 35–41 分钟</span><small>班次 6–20 分钟一班。<b>上山坐巴士</b>（2025-10-02 实测缆车上下各排 2 小时）。⚠️ 缆车票是<b>「指定日期 + 指定时段」制</b>，不是随到随上；只能在 <b>ticketing.thepeak.com.hk</b> 或微信小程序「香港山顶缆车ThePeakTram」买，<b>官网警示有假冒售票网站</b>。</small></span></li>
+    <li><span class="t">16:00</span><span class="c">白加道缆车站<span class="mv">凌霄阁出来左转 → 芬梨道 → 芬梨径下坡约 5 分钟</span><small>⚠️ <b>不建议专程去</b>——列车不主动停靠、假日经常不停站，且无栏杆、禁止跨越轨路。顺路看一眼就走，<b>别把它当行程点</b>。</small></span></li>
+    <li><span class="t">16:30</span><span class="c">山顶广场 3 楼观景台<span class="mv">免费 · 恒隆官方口径「继续免费开放」</span><small>可俯瞰维港。<b>这是摩天台 428（HK$80/人）的免费替代</b>——不用买票上凌霄阁。</small></span></li>
+    <li><span class="t">16:40</span><span class="c">凌霄阁 → 卢吉道观景台<span class="mv">约 1 公里 · 15–20 分钟</span><small>凌霄阁出来<b>往右</b>（游客中心旁）见「卢吉道」指示牌即入口。全程柏油平路、无梯级（环迴小径全长各源不一：3.2 / 3.5 / 3.6 公里，都是平路）。<b>观景台分两区、相距约 50 公尺</b>，一区挤可退二区。<b>入口旁有公厕，先上再去（全程无厕所）。</b></small></span></li>
+    <li><span class="t">17:30</span><span class="c">卢吉道观景台 · 日落 + 蓝调 + 夜景<span class="mv">日落 18:10 · 蓝调结束 18:32</span><small>270° 无遮挡维港，还能同框拍到缆车经过。<b>日落前半小时第一排栏杆会满</b>，两区合计约 30 支脚架位——所以 16:40 出发。超广角必备，山上风大带薄外套。</small></span></li>
+    <li><span class="t">19:20</span><span class="c">城巴 15 下山 → 中环<span class="mv">末班 01:00</span></span></li>
+    <li><span class="t">20:20</span><span class="c">中环 → 回深圳（走罗湖）<span class="mv">中环 → 红磡 → 东铁线 → 罗湖 · 约 1 小时</span><small>红磡往罗湖尾班 <b>23:07</b>，罗湖口岸开到 24:00，时间很宽松。过关后 <b>1 号线直达会展中心</b>。</small></span></li>
+  </ul>
+
+  <div class="blk warn"><h4>避坑</h4><ul>
+    <li><b>10/2 是这几天广东预报最重的一天（雷暴 47.7mm）</b>，而你这一天几乎全在户外：海滨、天星小轮、山顶、卢吉道。<b>雷暴时不要上卢吉道</b>（3.6 公里山脊步道、无遮蔽）。替代：把时间给大馆、半山扶梯、中环街市这些有遮蔽的段；山顶就上到「山顶广场 3 楼观景台」看完即坐 15 路下山，不等日落。</li>
+    <li><b>回程走罗湖</b>：红磡往罗湖尾班 <b>23:07</b>，罗湖口岸开到 24:00。<b>只要 21:30 前从中环动身就来得及</b>。若提前走，福田口岸（红磡尾班 21:35）也可以。</li>
+    <li><b>上山坐城巴 15 路</b>（中环交易广场上车，HK$13，6–20 分钟一班）。山顶缆车国庆排队能到 2–4 小时。下山也是 15 路，<b>末班 01:00</b>，看夜景没有时间压力。</li>
+    <li><b>用八达通或支付宝乘车码，不要买「游客全日通」。</b>那张 HK$75 的票在落马洲站买不到，也不覆盖罗湖/落马洲段，用它反而要另买两段单程票。⚠️ 误坐东铁头等车厢罚 HK$1,000。</li>
+  </ul></div>
+
+  <div class="blk eat"><h4>吃</h4><ul>
+    <li><span class="shop">麥奀記（忠記）麵家</span>（中環永吉街 37 號地舖）<span class="on">就在动线上</span><br>上環站 E1 出口 2 分鐘，人均 $50 以下，<b>週一至六 10:30–20:00、週日 10:30–19:00，無落場無週休</b>，<b>只收現金</b>。招牌正斗雲吞麵、柱侯牛腩。多篇食记写「幾乎都是在地人，很少遊客」。卡在「大館／半山扶梯 → 往下走約 10 分鐘」段。⭐ 是 1986 年開業的獨立老店，<b>不是有 15 間分店的「麥奀雲吞麵世家」集團</b>。</li>
+    <li><span class="shop">陳勤記鹵鵝飯店</span>（中環歌賦街 32 號地舖）<span class="on">就在动线上</span><br>距大館步行 4–5 分鐘，米芝蓮必比登（2012–2020、2022–2024），招牌滷水鵝片、鵝掌翼、蠔仔肉碎粥。<b>週一休息——10/2 是週五，不受影響。</b>⚠️ OpenRice 上標「Closed」的是<b>上環舊店</b>，不是這家；但最新確認來源只到 2024-08。<span class="tel">2858 0033</span>（官方站点；旧文写 9358 8944）</li>
+    <li><span class="shop">深仔記 Sham Tsai Kee</span>（尖沙咀赫德道 5-9 號德裕中心地下 4 號舖）<span class="on">就在动线上</span><br>尖東站 N3 出口 2 分鐘，<b>週一至六 11:00–03:00，無落場</b>，招牌鮮蝦雲吞麵，30+ 年本地宵夜店。食評原文「座位唔算特別多，高峰時段有時都要等一陣」——<b>非長龍</b>。</li>
+    <li><span class="no">避开</span> <b>九記牛腩</b>（就在你大館段旁邊，開門 10 分鐘後到已要排、實際等快 30 分鐘）、<b>蘭芳園</b>（半山扶梯旁正動線上，食評引「要等九個字」＝45 分鐘）、勝香園、一點心、澳洲牛奶公司。<b>添好運</b>米芝蓮官網明言「要有拼桌和排隊輪候的準備」，不建議專程去。<b>太平山段實質上不存在符合條件的店</b>（山頂餐飲全是遊客價連鎖）——中環吃飽再上 15 號巴士。</li>
+    <li><span class="shop">Nonsense Restaurant &amp; Bar</span>（土瓜灣北帝街 143-155 號）<span class="no">需偏离主线</span><br>人均 HK$101–200，营业 12:00–16:00、17:30–22:00（<b>16:00–17:30 关门休息，没有下午茶时段</b>）。<b>我要直说：这是热门庆生打卡店，会排队，必须订位。</b>食评原文「每晚人氣爆燈…到九點仍然有客人排隊」，且有 1.5 小时用餐时限。<b>若去，走午市（12:00 开门即到），不要晚市——10/2 正是周五，是它最旺的两天之一。</b><span class="tel">WhatsApp 6970 5943</span></li>
+  </ul></div>
+
+  <div class="blk alt"><h4>变体 · 想去 Nonsense 怎么插</h4><ul>
+    <li><b>它只能是午餐</b>（12:00 开门；晚市 17:30 开始，那会儿你在太平山）。<b>位置上它不在主线上</b>：尖東站→土瓜灣站是屯馬線 3 站，与「尖沙咀→天星小轮→中环→太平山」完全不重叠。</li>
+    <li><b>配套</b>：旁边的<b>牛棚艺术村</b>（1908 年前马头角牲畜检疫站，2009 年二级历史建筑，免费）30 分钟能逛完，正好配这顿午饭。</li>
+    <li><b>代价</b>：要压缩尖沙咀海滨段约 40 分钟，回程缓冲变薄——<b>回程就要按罗湖或高铁西九龙排，不能指望福田。</b></li>
+  </ul></div>
+</article>
+
+<!-- ============ D7 ============ -->
+<article class="day">
+  <div class="day-hd"><div class="day-no">D7</div><div>
+    <h3>10/3 <span>周六</span> · 珠海</h3>
+    <p class="thesis">圆明新园 → 情侣路日落线 → 野狸岛日月贝</p>
+  </div></div>
+  <div class="day-nums">
+    <span class="pill duo">两个人</span>
+    <span class="pill">步行 <b>7–8 km</b></span>
+
+    <span class="pill">日落 <b>18:11</b></span>
+  </div>
+
+  <ul class="tl">
+    <li><span class="t">09:04</span><span class="c"><b>G6346</b> 深圳北 → 广州南 <span class="mv">同站换乘</span> <b>G3875</b> → 珠海<small><b>11:04 抵达珠海站（拱北）</b>。</small></span></li>
+    <li><span class="t">11:10</span><span class="c">抵珠海站（拱北）<span class="mv">站旁即拱北口岸</span><small><b>行李寄存在珠海站。</b>站北出站口约 190 米有寄存点（约 09:00–23:59，行李箱约 10 元/天）；拱北口岸地下商场也有丰巢存包柜。放下就空手去玩——<b>晚上进横琴前来取，动线完全顺路，不用折返。</b></small></span></li>
+    <li><span class="t">12:15</span><span class="c">圆明新园<span class="mv">免费 · 白天场 9:00–17:30</span><small>兰埔。<b>⚠️ 它是 1997 年仿圆明园建的园区，属「人造」，按你的原则可以直接砍</b>——去了也只是看仿古建筑，没有城市底蕴。</small></span></li>
+    <li><span class="t">14:30</span><span class="c">情侣路 · 自西向东<span class="mv">全线约 5–6 km</span><small><b>爱情邮局</b>（情侣中路 88 号，白色灯塔本身就是机位，退远到广场两侧沙滩构图更干净）→ <b>珠海渔女</b>（香炉湾畔情侣中路 63 号，<b>傍晚 5 点前后黄金时刻把雕像照得金灿灿</b>）→ <b>香炉湾沙滩</b>。<b>这一段是全天精华。</b></small></span></li>
+    <li><span class="t">17:00</span><span class="c">城市阳台上层<small>270° 远眺日月贝 + 渔女，有天桥直通香炉湾沙滩。是俯拍这一段的零排队机位。</small></span></li>
+    <li><span class="t">18:00</span><span class="c">野狸岛 · 晚餐<span class="mv">海燕桥 / 新月桥连市区，不用坐船</span><small>公交 9/99 路「名亭公园」站，或 <b>Z11 路「日月贝」站直达岛上剧院</b>。全天开放、免费。</small></span></li>
+    <li><span class="t">19:15</span><span class="c">日月贝（珠海大剧院）· 环岛夜景<span class="mv">日落把贝壳染橙，亮灯后倒影加分</span><small>最佳机位：① <b>名亭公园拱桥</b>（野狸岛入口，俯拍「一红一白」双贝同框）；② <b>香炉湾公交站</b>（得月舫 + 日月贝「古今同框」）；③ 海韵城广场 / 海边栈道 / 星巴克露台（蓝调时刻）；④ <b>野狸岛半山观景台</b>（俯瞰香洲湾 + 日月贝全貌，人最少）。<b>拍海面倒影必带小三脚架。</b></small></span></li>
+    <li><span class="t">20:55</span><span class="c">进横琴入住<span class="mv">珠机城际 珠海站 → 横琴站 · 9 元 / 约 12–13 分钟</span><small>城际「车票当日一次有效、不限车次、随到随走」，最小间隔 10 分钟。<b>⚠️ 末班 S3905 是 20:55 从珠海站开</b>——<b>20:40 前必须到站</b>（野狸岛打车过去约 20 分钟，也就是说 20:20 前得离岛）。</small></span></li>
+  </ul>
+
+  <div class="blk warn"><h4>避坑</h4><ul>
+    <li><b>10/3 雷暴（8.4mm）</b>——情侣路的日落和日月贝夜景都可能泡汤。真下了就把重心移到城市阳台和野狸岛，或提前进横琴。<b>圆明新园本来就可砍，今天它就是第一个该砍的。</b></li>
+    <li><b>情侣路这段海岸面朝东——拍不到「太阳落入海面」</b>，它的真实价值是日落后的晚霞反射在海湾上。</li>
+    <li><b>珠海公交全市 1 元一票制</b>；出租车起步 10 元/2.5 公里 + 2.6 元/公里（23:00–6:00 加收 30%，12 公里后加收 30% 回空费）。</li>
+    <li><b>回横琴：珠机城际末班是 20:55 从珠海站开</b>、约 12–13 分钟到横琴，野狸岛打车过去约 20 分钟——<b>20:20 前必须离岛</b>。<b>赶不上就走公交</b>：K10、K11 末班都在 21:00 前后（<b>K11 走香洲—南屏—湾仔，不经过珠海站/拱北</b>），<b>N20 是夜班车、22:00 才首班</b>——<b>夜里其实有整晚兜底，不用慌</b>。</li>
+    <li><b>日月贝按纯外景规划。</b>官方没有关于公众入内的任何说明。</li>
+    <li><b>珠机城际有「大站快车」和「站站停」两种，坐错会跳站</b>——上车前看站台指示牌。</li>
+  </ul></div>
+
+  <div class="blk eat"><h4>吃</h4><ul>
+    <li><span class="shop">海怡酒家（白玫瑰花园店）</span>（情侣中路 361 号海虹路口）<span class="on">就在动线上</span><br>人均 ¥93，<b>08:30–22:00</b>，33 年老字号粤菜海鲜酒家，经营早午茶市 + 午晚饭市，招牌海怡虾饺皇、鲜虾脆皮肠粉、咖喱牛肚。⭐ 白玫瑰花园在<b>老香洲、近香洲港</b>，属野狸岛那一端（海滨泳场在南端反方向）——所以适合当野狸岛之后的晚餐。</li>
+    <li><span class="no">避开</span> 金悦轩海鲜酒家（「当地人週末必排队的早茶名店」）、颓记茶餐厅（「有着网红滤镜」）、澳门葡记手信（日月贝旁，「每次去都见到排了很长的队伍」）。<b>横琴晚餐未找到完全达标的店</b>——建议到横琴口岸对面的励骏庞都广场（步行 5–10 分钟）现场挑。</li>
+  </ul></div>
+</article>
+
+<!-- ============ D8 ============ -->
+<article class="day">
+  <div class="day-hd"><div class="day-no">D8</div><div>
+    <h3>10/4 <span>周日</span> · 澳门</h3>
+    <p class="thesis">世遗半岛 → 东望洋 → 氹仔 → 烟花闭幕场（含 3400 架无人机）</p>
+  </div></div>
+  <div class="day-nums">
+    <span class="pill duo">两个人</span>
+    <span class="pill">步行 <b>9–10 km</b></span>
+    <span class="pill">口岸 <b>24 小时</b></span>
+
+  </div>
+
+  <ul class="tl">
+    <li><span class="t">08:30</span><span class="c">横琴酒店出发</span></li>
+    <li><span class="t">09:00</span><span class="c">横琴口岸过关<span class="mv">24 小时 · 合作查验一次放行 · 刷脸</span><small><b>拿港澳通行证过关，不买票。</b>过关后轻轨在口岸地底——<b>澳门轻轨不能用乘车码，要在车站自助机买票</b>。</small></span></li>
+    <li><span class="t">09:30</span><span class="c">轻轨横琴站 → 妈阁<span class="mv">约 30–35 分钟</span><small>横琴站就在口岸地底。横琴线 → 莲花站 → 换氹仔线 → 妈阁。</small></span></li>
+    <li><span class="t">10:25</span><span class="c">大三巴 → 恋爱巷 → 大炮台<span class="mv">妈阁站步行约 20 分钟（1.3–1.5 km）</span><small><b>旅行团 10:30 后才大规模涌入，务必赶在这之前走完。</b>恋爱巷从大三巴正面不上楼梯、走楼梯左边小路约 30 米即到。大炮台 07:00–19:00、免费。</small></span></li>
+    <li><span class="t">11:45</span><span class="c">天主教艺术博物馆和墓室<span class="mv">免费 · 09:00–18:00</span><small>就在大三巴后，收藏 17–19 世纪天主教艺术珍品。它的休馆是周二 14:00 后——今天开。</small></span></li>
+    <li><span class="t">12:15</span><span class="c">午餐 · 休息</span></li>
+    <li><span class="t">13:30</span><span class="c">岗顶前地 → 圣老楞佐堂 → 郑家大屋 → 卢家大屋<span class="mv">步行串联</span><small>⚠️ <b>岗顶剧院正在内部维修（2026-08-05 公告，预计 10 月上旬完成），10/4 大概率不开</b>，只看前地即可；圣老楞佐堂（<b>澳门三大古教堂之一</b>）周日开到 21:00；郑家大屋（<b>郑观应故居</b>，岭南最大民居；周三休）；卢家大屋（<b>晚清中式大宅</b>；周一休）。<b>10/4 是周日，这四个全开，且多份攻略反馈「基本没人」。</b></small></span></li>
+    <li><span class="t">14:30</span><span class="c">圣若瑟修院圣堂 → 何东图书馆大楼 → 主教座堂<span class="mv">步行串联</span><small>圣若瑟修院圣堂 10:00–17:00（由三巴仔横街进入）；何东图书馆星期日 08:00–20:00；主教座堂 07:30–20:00。<b>全部免费，全部属于澳门历史城区世遗。</b></small></span></li>
+    <li><span class="t">15:15</span><span class="c">疯堂斜巷 + 塔石广场<span class="mv">户外 · 全天免费</span><small>薄荷绿房子 + 彩色门窗，港澳影视取景地。实拍反馈「<b>几乎没有什么人</b>」「<b>最能真实体验澳门当地生活的地方</b>」。<b>这是全天最符合你原则的一站。</b>斜巷有坡度，穿舒适的鞋。</small></span></li>
+    <li><span class="t">16:00</span><span class="c">东望洋炮台 + 圣母雪地殿教堂<span class="mv">炮台 09:00–18:00 · 免费</span><small>澳门半岛最高点，可俯瞰全城。⚠️ <b>灯塔不对外开放</b>，只能看外观。</small></span></li>
+    <li><span class="t">17:00</span><span class="c">转氹仔<span class="mv">轻轨 妈阁 → 氹仔线</span></span></li>
+    <li><span class="t">17:30</span><span class="c">龙环葡韵 + 官也街<span class="mv">龙环葡韵 10:00–19:00（周一休，今天开）</span><small>五栋 1921 年薄荷绿葡式别墅，澳门八景之一，<b>「五栋中最里面那栋最好拍，人潮也较少」</b>。官也街距它步行 5 分钟。⚠️ <b>10/1–10/6 每日 12:00–19:00，氹仔旧城区设国庆行人专用区（含官也街核心段）</b>，封闭交通、巴士站临时停用。</small></span></li>
+    <li><span class="t">18:00</span><span class="c">氹仔晚餐</span></li>
+    <li><span class="t">19:00</span><span class="c">路氹娱乐场建筑群（可选）<span class="mv">威尼斯人 / 巴黎人 / 伦敦人 · 步行或轻轨</span><small>不看赌桌，看建筑和免费项目：巴黎人花园拍铁塔全景、威尼斯人三楼走廊落地窗拍大笨钟、伦敦人门口红色双层巴士。<b>伦敦人有光雕秀（官网：每晚 19:30 起、每小时一次）。</b>看完原路去海洋大马路占位，不折返。</small></span></li>
+    <li><span class="t">19:15</span><span class="c">前往氹仔海洋大马路占位<span class="mv">官方推荐观赏点 6</span><small>提前 1.5–2 小时到场。官方点设有音响系统，澳门电台中文频道 FM100.7 于 21:00 及 21:40 实时播放背景音乐。</small></span></li>
+    <li><span class="t">21:00</span><span class="c">烟花第一场 · 菲律宾 Platinum Fireworks<span class="mv">21:00–21:18</span></span></li>
+    <li><span class="t">21:40</span><span class="c">烟花第二场 · 英国 Pyrotex Fireworx<span class="mv">21:40–21:58</span></span></li>
+    <li><span class="t">22:00</span><span class="c">无人机闭幕编队 + 颁奖<span class="mv">3400+ 架 · 确切时刻官方未公布</span><small>按「约 22:00 开始、22:15–22:30 全部结束」预留。</small></span></li>
+    <li><span class="t">22:45</span><span class="c">轻轨回横琴<span class="mv">海洋站 → 莲花站 → 横琴站 · 只换乘一次</span><small>等 22:45 人群散了再走——这正好错开横琴口岸 16:00–22:00 的入境高峰。轻轨周日至 23:59，保守按「23:40 前到海洋站」执行。</small></span></li>
+    <li><span class="t">23:30</span><span class="c">回横琴酒店</span></li>
+  </ul>
+
+  <div class="blk warn"><h4>避坑</h4><ul>
+    <li><b>烟花遇雷暴可能改期或取消</b>——出发前查澳门旅游局官方公告（fireworks.macaotourism.gov.mo）。若真取消，22:00 前后就提前走，正好躲开横琴口岸的散场高峰。</li>
+    <li><b>今天是澳门全年最挤的一天。</b>2025 年 10 月 4 日单日入境旅客 <b>19.1 万人次，刷新澳门国庆黄金周历史纪录</b>；横琴口岸当日 12.5 万人次。当天下午治安警曾在大三巴实施人潮管制。<b>「早进 + 中段躲核心区 + 晚出」是唯一正确的打法。</b></li>
+    <li><b>玫瑰堂在维修，10/4 去不了</b>——而且施工范围包含外墙，大概率有棚架，连正面照都拍不成。<b>替代首选疯堂斜巷。</b><span class="tel">想问就打 +853 2836 6320</span></li>
+    <li><b>大三巴不要 09:30 才到。</b>网友口径高度一致：8:00 去几乎没人，9:30 左右开始有旅行团，10 点到下午 2 点最密。你 09:30 上车、10:05 到妈阁、10:25 到大三巴，还是卡在旅行团 10:30 涌入前。</li>
+    <li><b>⚠️ 关于「在珠海侧看烟花」：<b>澳门旅游局 2026 年把珠海十字门、加林山、情侣南路也列进了官方推荐观赏点</b>，跟下面这条 2025 年的实地感受<b>口径相反</b>。</b>2025 年实地实证：「珠海十字门是<b>偏侧角度</b>，只能看到烟花的侧面，少了正面爆开的震撼感」；而且「当晚风向不理想，<b>烟雾一直飘过来，整个画面都灰灰的</b>」。澳门侧的氹仔海洋大马路是正面视角、紧邻轻轨站、离横琴最近——三个条件同时满足的只有它。</li>
+    <li><b>横琴口岸往返用澳门轻轨 + 公交，别指望发财车</b>——班次和末班时间没有可靠信息。</li>
+    <li><b>进娱乐场要带证件</b>（满 21 岁），着装偏商务休闲、别穿拖鞋背心。⚠️ <b>场内全面禁止影像与录音，赌桌及周围 3 米禁用手提电话</b>；赌桌区严禁拍照，但酒店大堂、餐厅等公共区域通常可拍。</li>
+  </ul></div>
+
+  <div class="blk eat"><h4>吃</h4><ul>
+    <li><span class="shop">勝利茶餐室</span>（新馬路營地大街 94 號地舖）<span class="on">就在动线上</span><br>人均 MOP 50 以下，<b>07:30–22:00 無落場無週休</b>，招牌豬扒包（吉列豬扒）、西多士、焗豬扒飯，每人低消 $18。⭐ <b>这是唯一「猪扒包 + 完全顺路 + 排队量级可控」的答案</b>——大利來記每天下午大批排队、世記咖啡要排长龙。实测评「大约等左 10 分鐘就有位」；<b>建议 11 点前去，14:30 后下午茶时段较松且有套餐</b>。</li>
+    <li><span class="shop">南屏雅敘 NAM PENG CAFE</span>（新馬路十月初五街 85–85A 號地下）<span class="on">就在动线上</span><br>1966 年開業、公認<b>澳門最古老茶餐廳</b>，<b>06:30–18:30 無落場</b>，招牌南屏三文治（厚煎蛋+叉燒+火腿）MOP 27–30、沙翁。距大三巴步行 5–10 分鐘。<b>想吃沙翁必須早上去（下午常賣光）</b>；早上 8–10 点是本地人早餐尖峰，併桌是常態。</li>
+    <li><span class="shop">葡多利 Portugália</span>（氹仔木鐸街 75 號）<span class="on">就在动线上</span><br>官也街旁步行 2–3 分鐘，人均 MOP 101–400（各源不一），<b>12:00–22:00 無落場無週休</b>，招牌葡多利牛扒、葡式海鮮飯、木糠布甸。米芝蓮指南連續推介。⭐ <b>接受電話訂位——这是整个澳门方案里唯一能主动消灭排队风险的店。</b><span class="tel">+853 6280 3992</span></li>
+    <li><span class="shop">兴记咖啡室</span>（氹仔柯打苏沙街 18 号）<span class="on">就在动线上</span><br>猪扒煎蛋包 <b>MOP 32</b>、杂扒意粉 MOP 47。<b>官也街排长龙时的本地替代</b>——OpenRice 食评原话「官也街间间都排长龙，就去左呢间唔使等位」。收录于澳门消委会商号目录。</li>
+    <li><span class="shop">上葡京 · 上葡美食坊</span>（上葡京 2 楼）<span class="on">绕到路氹时顺路</span><br><b>免排队一次吃齐多个澳门特色</b>：荣记牛杂、MR.K 赤辣豬扒包、澳門王子冰室、紅荔村腸粉。<b>官网明确「欢迎任何年龄宾客」</b>。人均 MOP 51–100。</li>
+    <li><span class="shop">沙度娜 Serrdura</span>（氹仔地堡街泉福新村）<span class="on">就在动线上</span><br>木糠布甸 <b>MOP 25–30</b>，三色木糠布甸。无座位、即买即走，不排队。</li>
+    <li><span class="no">避开</span> <b>官也街一带你 10/4 下午会正面撞上</b>：老Day牛雜（「排队起码都30分钟以上」）、安德魯餅店官也街店（「這排隊人潮真的會嚇到」）、莫義記（「長期大排人龍」）、晃記餅家、誠昌飯店、大利來記。⚠️ <b>婆仔屋 ALBERGUE 1601</b>（瘋堂斜巷 8 號）就在你動線上、米芝蓮推介、黄屋很好拍，但「通常都要排隊，最好提早訂位」且人均 MOP 250–400——<b>要它就必須訂位</b>。</li>
+  </ul></div>
+
+  <div class="blk alt"><h4>娱乐场怎么逛（不赌，只感受）</h4><ul>
+    <li><b>免费且有看头的：</b><br>· <b>永利皇宫</b>——观光缆车（免费、免预约、现场排队）+ 表演湖音乐喷泉。缆车<b>周日至周四 16:00–22:00（21:40 最后搭乘）</b>，周五六开到 24:00。10/4 正好是周日。<br>· <b>澳门银河</b>——钻石秀，室内、免费。<br>· <b>伦敦人</b>——大笨钟 1:1 复刻；<b>光雕秀（官网：每晚 19:30–23:30，每小时一次）</b>；门口那辆红色双层巴士是免费机位。<br>· <b>美高梅（MGM Cotai）</b>——「Spectacle」室内自然景观与天幕广场。</li>
+    <li><b>建筑有看头的：</b>摩珀斯（新濠天地，Zaha Hadid 设计，中庭可进）、新葡京（莲花造型，半岛天际线的地标）、巴黎人的半比例埃菲尔铁塔。</li>
+    <li><b>两个不排队的好机位：</b>① <b>巴黎人花园</b>（酒店对面草坪）——拍铁塔全景最好，也是这几个点里唯一适合全身人像的地方；② <b>威尼斯人三楼通往球场走廊尽头</b>有一扇落地窗正对大笨钟，基本没人抢。</li>
+    <li><b>可以跳过的：</b>巴黎人铁塔付费观景台、巴黎人酒店外的网美阶梯、花园正中央那张椅子——这三个都要排队，而且观景台被普遍评价为「太小、未必值」。</li>
+    <li><b>怎么插进行程：</b>这些都在<b>路氹</b>，离你 10/4 的半岛世遗线是反方向，但<b>离氹仔和横琴口岸最近</b>——所以不要特意绕，<b>放在看完龙环葡韵/官也街之后、去海洋大马路占位之前那一段</b>（约 17:30–19:00）。威尼斯人室内运河是人造天空+人造光，手机拍照偏黄，别当主力。</li>
+  </ul></div>
+
+  <div class="blk alt"><h4>精简版（如果觉得太满）</h4><ul>
+    <li>砍掉「圣若瑟修院 / 何东图书馆 / 主教座堂」那一段，或砍掉东望洋炮台；下午 15:30 后只在半岛慢走，17:00 就到氹仔海边坐下吃饭等烟花。</li>
+    <li>若想去路环（澳门最慢的一站：安德鲁饼店本店、圣方济各圣堂、十月初五马路、荔枝碗船厂），<b>它会和烟花占位时间直接冲突，必须二选一</b>。</li>
+  </ul></div>
+</article>
+
+<!-- ============ D9 ============ -->
+<article class="day">
+  <div class="day-hd"><div class="day-no">D9</div><div>
+    <h3>10/5 <span>周一</span> · 广州</h3>
+    <p class="thesis">东山口 → 泮塘五约 → 永庆坊 → 沙面日落 —— 全程 6 号线不换乘</p>
+  </div></div>
+  <div class="day-nums">
+    <span class="pill duo">两个人</span>
+    <span class="pill">步行 <b>9–10 km</b></span>
+
+    <span class="pill">日落 <b>18:10</b></span>
+  </div>
+
+  <ul class="tl">
+    <li><span class="t">08:01</span><span class="c"><b>C7614</b> 珠海 → 广州南<small><b>09:51 抵达广州南</b>。</small></span></li>
+    <li><span class="t">09:51</span><span class="c">广州南 → 北京路酒店<span class="mv">2号线 → 海珠广场 → 换 6号线 → 北京路 · 约 33 分</span><small>先寄存行李。</small></span></li>
+    <li><span class="t">10:40</span><span class="c">东山口 / 新河浦街区<span class="mv">6号线 北京路 → 东山口 · 3 站</span><small>庙前西街 → <b>培正路</b>（「广州最美斜坡」，红砖校墙）→ 恤孤院路（逵园，现为免费艺术馆）→ 新河浦路（<b>春园</b>（<b>中共三大旧址</b>；周一闭馆但<b>法定节假日除外</b>——10/5 在国庆假期内，很可能开）周二至周日 9:00–17:30、<b>逵园</b>现为艺术馆、<b>明园</b> 11:00–18:00 可进；<b>简园与隅园不开放</b>，只能看外观）。<b>400–500 栋民国洋楼，免费、全天、无需预约、无排队。</b>它是活的街区——有菜市场、有住户、有咖啡店，不是景区布景。</small></span></li>
+    <li><span class="t">12:40</span><span class="c">午餐 · 东华东路一带<small>顺路的<b>恩宁刘福记东华东路店</b>就在这条线上。顺便避顶光。</small></span></li>
+    <li><span class="t">14:00</span><span class="c">泮塘五约 + 荔湾湖公园<span class="mv">6号线 东山口 → 如意坊 · 步行串联</span><small><b>900 年清代古村落，广州历史城区里唯一保留完整清代格局与朴素风貌的聚落。</b>青砖麻石、趟栊门、镬耳屋，原住村民约 120 户。微改造时<b>刻意拒绝网红奶茶与连锁咖啡</b>，官方口径「泮塘的目标不是做网红」。荔湾湖公园免费，海山仙馆（复原清代岭南名园），<b>荔枝湾大戏台常有免费粤剧演出（约 14:00–17:00）</b>。逛完步行约 15 分钟到永庆坊。</small></span></li>
+    <li><span class="t">15:15</span><span class="c">永庆坊 + 恩宁路骑楼街<span class="mv">约 1.5 小时</span><small>永庆坊街区免费、24 小时开放。恩宁路是广州现存最长最完整的骑楼街。<b>顶光时段躲进骑楼与园林展厅，这是全天最合理的避光安排。</b>旁有<b>粤剧艺术博物馆</b>（免费，需公众号预约）。</small></span></li>
+    <li><span class="t">16:30</span><span class="c"><b>沙面岛 · 全天摄影高潮</b><span class="mv">16:00–18:00 西偏南柔光</span><small>沙面大街黄墙洋楼 → 露德圣母堂（沙面大街 14 号，1890 年仿哥特）→ 汇丰银行旧址（沙面大街 54 号）前斑马线 → 爱心树 → 沙面南街江边绿荫道 → 沙面公园江边。<b>日落 18:10、蓝调结束 18:33，收尾正好。</b>全岛免费、全天开放、无需预约；150 余栋欧陆建筑，54 处全国重点文保。<b>全岛禁共享单车/电动车，全程步行。</b></small></span></li>
+    <li><span class="t">18:35</span><span class="c">回北京路<span class="mv">黄沙站 6号线 → 北京路 · 3 站</span></span></li>
+    <li><span class="t">19:00</span><span class="c">大佛寺 + 北京路<span class="mv">惠福东路惠新中街 21 号 · 北京路站 B 口步行 2 分钟</span><small><b>免费、无需预约、19:00 亮灯</b>，鎏金屋顶 + 朱红宫墙与身后摩天楼同框。因为你住旁边，这是全天零成本收尾。</small></span></li>
+    <li><span class="t">20:00</span><span class="c">北京路晚餐 + 夜逛</span></li>
+  </ul>
+
+  <div class="blk warn"><h4>避坑</h4><ul>
+    <li><b>10/5 虽是周一，但落在国庆假期内（10/1–10/7）</b>——广州多数原本周一闭馆的场馆在法定假期照常开放，<b>春园就是其中之一</b>。按「开」来排，到门口再看告示。</li>
+    <li><b>石室圣心大教堂今天内部不开，只能拍外观</b>（它常规周一全天不开放）。外观确实是老城最震撼的一栋——全球四座全石结构哥特式教堂之一——<b>5 分钟顺路拍完就走，别为它排时间。</b></li>
+    <li><b>沙面全岛禁共享单车和电动车</b>，全程步行；150 余栋欧陆建筑里，<b>领馆旧址类建筑禁止拍照</b>。</li>
+  </ul></div>
+
+  <div class="blk eat"><h4>吃</h4><ul>
+    <li><span class="shop">恩宁刘福记（东华东路店）</span>（东华东路 547 号）<span class="on">就在动线上</span><br>人均 ¥24，<b>周一至周日 08:00–21:00 无周休</b>，米其林指南收录，招牌土猪油捞面、鲜虾云吞面、酥炸鱼皮。东山口站步行 640m。<b>⭐「周一确认营业」是这家最大的价值</b>——直接排除了广州老店最大的周一风险。用户写「最喜欢下午三四点来，避开高峰期」。<span class="tel">13802965498</span></li>
+    <li><span class="shop">吴财记面家（大同路店）</span>（荔湾区大同路和隆里 20 号）<span class="on">就在动线上</span><br>人均 ¥15–26，<b>07:00–次日 00:30，一年 365 天不歇业</b>（店主原话「我们从来不歇业」），招牌传统鲜肉云吞面（竹升面）、怀旧锦卤炸云吞。卡在「永庆坊/恩宁路 → 沙面」的步行途中，黄沙站步行 5 分钟。⚠️ 节假日经常排队，但<b>面店翻台快</b>。</li>
+    <li><span class="shop">侨美食家（沙面总店）</span>（沙面南街 52 号 1 楼）<span class="on">就在动线上</span><br>人均 ¥121–134，招牌<b>红烧乳鸽／瑞士汁乳鸽</b>（累计售出超 2000 万只）。正对 16:20–18:10 的沙面日落片区。可当天顺路打电话问；<b>订不到就换吴财记或恩宁刘福记，都是不用等位的。</b><span class="tel">020-81217018</span></li>
+    <li><span class="no">避开</span> ⚠️ <b>云香楼（东华东路 342 号 4 楼）—— 本次最该避开的一家，而你原本很可能想去。</b>就在东山口、121 年历史、2025 年 8 月原址重开。羊城晚报、广州日报、新快报三家官媒一致记录：试营业首日「<b>11 点半未到，派号告罄的牌子便挂起</b>」；<b>2025 年 8 月刚重开的超级热点，2026 国庆必然爆满。</b>另：陶陶居第十甫路总店（等位超 1 小时且偏离动线）、达杨原味炖品（「经常人龙不绝」）、百花甜品（「日日排队」）、富临食府（实测拿了号一小时后还要再等十几分钟）。</li>
+  </ul></div>
+</article>
+
+<!-- ============ D10 ============ -->
+<article class="day">
+  <div class="day-hd"><div class="day-no">D10</div><div>
+    <h3>10/6 <span>周二</span> · 顺德 → 北京</h3>
+    <p class="thesis">大良老城 + 顺峰山半天，<b>17:00 必须走</b></p>
+  </div></div>
+  <div class="day-nums">
+    <span class="pill duo">两个人</span>
+    <span class="pill">步行 <b>约 7 km</b></span>
+    <span class="pill">17:00 硬性离开</span>
+    <span class="pill">MF8340 · <b>21:10</b> · T2</span>
+  </div>
+
+  <p class="note" style="margin-top:14px">⚠️ <b>如果不去顺德：取消下面这条线</b>，10/5 和 10/6 两天都留在广州（见文末「不去顺德」）。</p>
+
+  <ul class="tl">
+    <li><span class="t">08:30</span><span class="c">北京路退房 → 广州南站<span class="mv">步行至公园前站 → 2号线直达广州南 · 约 30 分</span><small>退房时行李带走。<b>今天的关键动作是把行李存在广州南站</b>——它正好在你往返大良的必经路上，也是傍晚去机场的换乘点，<b>全程零绕路</b>。别存北京路（晚上要折回市中心再北上，纯绕路 35 公里）。</small></span></li>
+    <li><span class="t">09:05</span><span class="c">广州南站存包<span class="mv">地铁站内 · 非付费区 · 不用出站</span><small>广州地铁智能寄存柜：<b>大柜 5 元/小时、24 小时封顶 30 元，可放 28 寸行李箱</b>。⚠️ <b>使用时段与地铁运营同步，不可过夜</b>——今天<b>22:30 前</b>取走即可（地铁寄存柜 6:00–22:00 可用），你 17 点前就取了，没问题。若柜满或行李超 28 寸，走<b>南站东门附近的汽车站智能寄存柜（24 小时）</b>兜底。</small></span></li>
+    <li><span class="t">09:20</span><span class="c">广州南 → 大良<span class="mv">7号线 广州南 → 北滘公园 → 站内换佛山 3号线 → 大良钟楼 · 约 45–55 分</span></span></li>
+    <li><span class="t">10:15</span><span class="c">大良钟楼站 E 口 → 清晖园<span class="mv">沿清晖路步行约 450 米</span><small>E 口指示牌直接标「清晖园、华盖路步行街、华盖山栈道」。<b>清晖园 09:00–17:30（17:00 停止进园），按时间段验票。</b></small></span></li>
+    <li><span class="t">10:30</span><span class="c">清晖园外观 + 周边<small><b><b>清晖园是岭南四大名园之一</b>。¥12 门票按你的规则排除</b>（国庆日场八折后的价）。在门口或沿清晖路拍园林外墙。若破例：唯一官方购票渠道是微信公众号「顺德清晖园博物馆」，官方专门声明过别在其他平台买（有假票）。</small></span></li>
+    <li><span class="t">11:15</span><span class="c">华盖路步行街 + 华盖里直街<span class="mv">约 1 小时</span><small>骑楼主色调粉黄/粉绿/粉蓝。华盖里直街仅约 460 米，2026-09-16 刚以「寻味顺德」网红街开业（国资统一改造、修旧如旧骑楼）。<b>已实行步行街管理，禁止私家车驶入。</b></small></span></li>
+    <li><span class="t">12:00</span><span class="c">华盖山栈道<span class="mv">约 1600 米 · 30–40 分钟</span><small>华盖路中段入口，<b>免费</b>，可俯瞰大良。<b>在街上，人流瞬间分流，出片且几乎不排队。</b></small></span></li>
+    <li><span class="t">12:45</span><span class="c">午餐 · 顺德菜</span></li>
+    <li><span class="t">14:00</span><span class="c">顺峰山公园<span class="mv">打车约 15 分钟 · 免费</span><small><b>中华第一牌坊</b>（宽 88 米 / 高 38 米）+ 青云湖一段。园区 24 个景区、两湖 8 公里环湖道，<b>别想走完</b>，只看牌坊 + 湖边一段就够。国庆期间还有第二届佛山咖啡文化周（10/6 是最后一天）（10:00–22:00）。</small></span></li>
+    <li><span class="t">15:00</span><span class="c">回大良钟楼一带<small>还剩两小时，可以在华盖路慢慢逛、吃个双皮奶。</small></span></li>
+    <li><span class="t">17:00</span><span class="c"><b>离开大良</b><span class="mv">大良钟楼 → 北滘公园 → 7号线 → 广州南 · 约 45–55 分</span><small>从离开大良到进 T2，门到门约 2–2.5 小时（含取包、城际候车、白云机场北站步行）。<b>19:05–19:30 到 T2，距 21:10 起飞仍有 1 小时 40 分以上</b>——按你说的标准够用。</small></span></li>
+    <li><span class="t">17:55</span><span class="c">广州南站取包<span class="mv">原地取出，不用出站</span></span></li>
+    <li><span class="t">18:20</span><span class="c">番禺站 → 白云机场北<span class="mv">广州东环城际 · 不限车次不对号当日有效</span><small><b>白云机场北 = T2。</b>番禺站在广州南站枢纽内；换乘认准<b>1 站台</b>（固定接发往花都 / 白云机场方向）。⚠️ <b>2026-03-15 调图后已取消「番禺站直达白云机场」的特快列车</b>，现在按站站停 / 大站快车算，<b>约 35–56 分</b>；2026-09-19 又调过一次图，出发前用 12306 查一次。</small></span></li>
+    <li><span class="t">18:55</span><span class="c">抵白云机场北站 → 步行至 T2<span class="mv">出站步行 3–5 分钟</span></span></li>
+    <li><span class="t">21:10</span><span class="c"><b>MF8340</b>（厦门航空）起飞<span class="mv">白云机场 T2</span><small>次日 00:10 抵北京大兴。</small></span></li>
+  </ul>
+
+  <div class="blk warn"><h4>避坑</h4><ul>
+    <li><b>清晖园国庆单日入园曾达 2.2 万人次。</b>错峰窗口是上午 8:30–9:00 和下午 16:45–17:00（17:00 就停止进园了，17:00–17:30 进不去）。10/6 是假期尾巴，压力低于 10/1–10/3。</li>
+    <li><b>⚠️ 10/6 正是大良鱼灯会首日（10/6–7），18:00 前必须离开清晖园片区。</b>官方确认国庆期间大良街道有鱼灯会（<b>巡游是 10/6 晚 20:00–21:00，你已经走了</b>），但白日市集与布展可能影响大良钟楼站周边通行。<b>封路范围未找到公告，当天现场务必核实。</b></li>
+    <li><b>你的航班在 T2，城际要在「白云机场北站」下车</b>（东站是 T3，南站已停用）。T2 国内出港起飞前 40 分钟停止值机。</li>
+    <li><b>存包别用广州南站三楼的自助柜</b>——那个必须凭当日火车票，你当天飞北京、不坐火车，用不了。<b>用地铁站内的（非付费区，不用出站）或东门汽车站的（24 小时）。</b></li>
+  </ul></div>
+
+  <div class="blk eat"><h4>吃</h4><ul>
+    <li><span class="shop">韦记牛杂汤（清晖园店）</span>（大良华盖里直街四号伟怡楼 2 号）<span class="on">就在动线上</span><br>人均 ¥24–25，<b>08:00–20:30</b>，招牌五香牛杂 ¥30、牛杂汤、萝卜面筋 ¥5，距大良钟楼站 E 口约 810m / 步行 11 分。<b>⭐ 错峰方案明确：博主实测「早上 8 点一过，果然这个点的人不多」；2019 年对比来源确认「相比于门前站满游客的细妹牛杂，韦记店里更多是来吃早饭的当地人」，同款还便宜几元。</b>5–10 分钟吃完，不占用赶飞机的预算。</li>
+    <li><span class="shop">探记煲仔饭 · 明朝镬耳屋</span>（大良华盖里四巷 26 号）<span class="on">就在动线上</span><br>人均 ¥54，<b>11:00–14:00、17:00–21:00（有午休）</b>，招牌金牌黄鳝煲仔饭、顶级腊味煲仔饭。近 300 年古宅，座位有限，<b>存在排队可能</b>。</li>
+    <li><span class="shop">御煌金牌煲仔饭（清晖园店）</span>（大良清晖路 33 号）<span class="on">探记的备份</span><br>人均 ¥50–70，招牌白切鸡煲仔饭、牛肉生蚝煲仔饭。<b>探记排队就直接换这家</b>——同品类、同在动线上、离钟楼站比探记更近。建议 11:00 一开门就到。</li>
+    <li><span class="no">避开</span> ⚠️ <b>细妹五香牛杂</b>（华盖里直街信发楼 3 号铺）—— 十六番用户原话「据说国庆/周末<b>可以排整整两个小时</b>」，2025-05 实测「排队时间平均超过 60 分钟」；<b>民信老铺 / 仁信老铺</b>（佛山本地宝点名「节假日或饭点可能需排队」，大良双皮奶经营单位约 150 家，<b>不缺替代，不必死磕</b>）；<b>金榜欢记牛乳</b>（国庆排长队 + 18:00 就关门 + 离钟楼站 1.2km 已偏离主线）；<b>野仙鱼生</b>（就在探记隔壁，2023/2024 连续两年必吃榜 + 2026 年 6/7/8 月连续投放推广软文，黄金周排队概率高）。</li>
+  </ul></div>
+
+  <div class="blk alt"><h4>不去顺德 · 10/5 + 10/6 都在广州</h4><ul>
+    <li><b>10/5 保持原线，但把「泮塘五约 + 荔湾湖」挪到 10/6</b>——当天变成：东山口 → 永庆坊/恩宁路 → 沙面日落 → 北京路 + 大佛寺。<b>步行从 9–10 公里降到约 7 公里</b>，是更松的一天。</li>
+    <li><b>10/6 上午 · 越秀公园 + 中山纪念堂</b>：五羊石像、明代城墙、镇海楼（广州博物馆）都在越秀公园内，免费；中山纪念堂（外观）就在旁边。这一段是广州老城的另一条轴线，2 号线纪念堂站一带，<b>和 10/5 的西关—沙面完全不重复</b>。</li>
+    <li><b>10/6 中午 · 泮塘五约 + 荔湾湖公园</b>（免费）：900 年清代古村落，广州历史城区里唯一保留完整清代格局的聚落。<b>荔湾湖大戏台常有免费粤剧（下午 2:15–4:45）</b>。</li>
+    <li><b>10/6 下午</b>：回北京路酒店取行李 → 出发去机场。</li>
+    <li><b>去机场的走法</b>：公园前（2 号线）→ <b>嘉禾望岗</b> → 换 3 号线北延段 → <b>机场北站（T2）</b>，约 1 小时 15 分。</li>
+    <li>⚠️ <b>16:00 前出发更稳。</b>这条线要在嘉禾望岗大站换乘一次，国庆返程高峰地铁会挤，而且你还拖着行李——比走顺德的「广州南站换城际」更容易出岔子。</li>
+    <li><b>两案取舍</b>：去顺德多一个城市，但要多倒一次行李；留广州换乘更简单、走路更少，代价是 10/6 的内容轻一些。</li>
+  </ul></div>
+</article>
+
+</main>
+
+<section class="sec" id="risks" data-panel="risks">
+  <div class="sec-hd"><h2>风险与备选</h2><span class="n">按发生概率排</span></div>
+
+  <div class="blk warn"><h4>台风 —— 唯一可能推翻整天安排的风险</h4><ul>
+    <li><b>9/27 实查</b>（香港天文台展望 + 广东 7 天预报）：西北太平洋确有一个热带气旋在发展，三种路径情景里「转向日本」「靠近台湾及广东东部后减弱」两种可能性稍大，<b>目前没有直接影响华南的预报</b>。东北季候风 <b>10/1 起影响华南</b>，高温会缓解。</li>
+    <li><b>真正要盯的是雷暴，不是台风。</b>广东 7 天预报：<b>10/1 雷暴（12.6mm）· 10/2 雷暴（47.7mm，最重）· 10/3 雷暴（8.4mm）</b>——<b>D5 大梅沙 / D6 香港 / D7 珠海 这三天都在雷雨里</b>，各天避坑里都写了替代方案。</li>
+    <li><b>澳门 10/4 的烟花遇雷暴可能改期或取消</b>——出发前查澳门旅游局官方公告。八号风球下横琴口岸、拱北口岸、港珠澳大桥会<b>同时停摆</b>。</li>
+    <li><b>应对</b>：9/29–9/30 再重查一次。若真有台风，澳门段可整体前移到 10/3（珠海那天本来就是半天机动）。<b>台风导致列车停运可 30 天内全额退票；航班取消属天气不可抗力，享有免费退票或改签的法定权益，特价票同样适用。</b></li>
+  </ul></div>
+
+  <div class="blk warn"><h4>10/6 赶飞机</h4><ul>
+    <li><b>硬性时限：17:00 前必须离开大良</b>（走城际）；走机场大巴（大良候机楼，正常 70–90 分钟、国庆按 150–180 分钟预留）则 16:00 前必须上车。</li>
+    <li>航站楼是 <b>T2</b>，城际在「白云机场北站」下车。<b>T2 国内出港起飞前 40 分钟停止值机。</b></li>
+  </ul></div>
+
+  <div class="blk warn"><h4>排队 —— 全线已按「不排队」排过，这几处仍有风险</h4><ul>
+    <li><b>广州地铁 6 号线不在国庆延长名单</b>（延长的是一、三、五、八、二、七号线）——而 D9 的黄沙、文化公园、北京路<b>全在 6 号线上</b>，收尾要按<b>正常末班</b>算。</li>
+    <li><b>大三巴</b>：唯一解是 10:30 前走完（已排到）。</li>
+    <li><b>横琴口岸增建工程 2026-03-02 起施工</b>，<b>官方口径预计 2026 年第三季度竣工</b>，2026-09-15 通告称新通道已进入综合测试、9/16 起实境测试。10/4 按现场指示走，黄金周仍<b>多留 20–30 分钟缓冲</b>。</li>
+    <li><b>官也街</b>：<b>你 17:30 才到龙环葡韵和官也街</b>，而 10/1–10/6 氹仔旧城区 12:00–19:00 是国庆行人专用区——人只会更多，18:00 吃完就往海洋大马路走。</li>
+    <li><b>云香楼（广州东山口）</b>：2025-08 刚重开的热点，10/5 会爆满——只路过，不要排。</li>
+    <li><b>山顶缆车</b>国庆排队久，已改坐城巴 15 路（见 D6）。</li>
+    <li><b>通用避峰窗口</b>：14:00–16:00 就餐，等位明显少于 12:00–13:00。</li>
+  </ul></div>
+</section>
+
+<section class="sec" id="emergency" data-panel="emergency">
+  <div class="sec-hd"><h2>应急信息</h2><span class="n">建议存到手机备忘录</span></div>
+
+  <h3 class="sub" style="margin-top:6px">紧急电话</h3>
+  <div class="dl">
+    <div><span>香港 · 紧急求助（火警/报警/急救）</span><span class="v">999</span></div>
+    <div><span>香港 · 旅游业监管局</span><span class="v">+852 3698 5900</span></div>
+    <div><span>香港 · 旅游发展局旅游热线</span><span class="v">+852 2508 1234</span></div>
+    <div><span>香港 · 天气查询（天文台）</span><span class="v">+852 1878 200</span></div>
+    <div><span>澳门 · 紧急求助</span><span class="v">999 / 110 / 112</span></div>
+    <div><span>澳门 · 治安警察局出入境事务厅（24h）</span><span class="v">+853 2872 5488</span></div>
+    <div><span>澳门 · 旅游局旅游热线</span><span class="v">+853 2833 3000</span></div>
+    <div><span>澳门 · 文化局工程查询（问玫瑰堂开放）</span><span class="v">+853 2836 6320</span></div>
+    <div><span>内地 · 报警 / 急救 / 火警 / 交通</span><span class="v">110 / 120 / 119 / 122</span></div>
+  </div>
+
+  <h3 class="sub">想坐正餐的话（都要当天问，订不到就走替代）</h3>
+  <div class="dl">
+    <div><span>葡多利（澳门氹仔·官也街旁）</span><span class="v">+853 6280 3992</span></div>
+    <div><span>侨美食家（广州沙面）</span><span class="v">020-81217018</span></div>
+    <div><span>Nonsense（香港土瓜湾·走变体才需要）</span><span class="v">WhatsApp 6970 5943</span></div>
+    <div><span>太子粤菜坊（深圳蛇口·OpenRice 订座）</span><span class="v">—</span></div>
+  </div>
+
+  <h3 class="sub">出发前值得打的确认电话</h3>
+  <div class="dl">
+    <div><span>陳勤記中環店（营业状态只确认到 2024-08）</span><span class="v">9358 8944</span></div>
+    <div><span>大壶春（确认开门时刻）</span><span class="v">021-63130155</span></div>
+    <div><span>德兴馆（是否含午休）</span><span class="v">021-63522528</span></div>
+    <div><span>夏朵（华山店·营业时间未查到）</span><span class="v">021-62128085</span></div>
+    <div><span>至正潮菜（确认午市）</span><span class="v">—</span></div>
+  </div>
+
+  <h3 class="sub">证件丢失怎么办</h3>
+  <p class="note"><b>香港：</b>先到任何一所香港警署报失拿报失证明 → 亲临香港中旅证件服务中心提交申请（需内地身份证或户口簿原件、白底彩照 1 张及检测回执）→ 普通件 3 个工作日、加快件 2 个工作日，费用 HK$300（加快件一栏官方未标价，别按有加快件安排） → 领证在港岛证件服务中心 → <b>⚠️ 领到「临通」后还必须亲往香港入境事务处（湾仔告士打道 7 号入境事务大楼 5 字楼 1 号窗）办理离境手续方可离港</b>。咨询 +852 2998 7888。</p>
+  <p class="note"><b>澳门：</b>亲往治安警察局出入境事务大楼（氹仔北安码头一巷，<b>24 小时</b>）办报失 + 申领《遗失证件及报到通知书》，<b>即时办理、费用全免</b> → 持通知书到澳门中国旅行社申请一次性《出入境通行证》→ 离境时须同时出示两份文件。<b>快捷通道</b>：仅遗失通行证且急于返内地者，可直接到关闸出入境事务站出境办事处申请紧急返回内地（办公 06:00–01:00 翌日），须具备紧急及充分理由、未逾期逗留、无违法行为。</p>
+
+  <h3 class="sub">必备 App</h3>
+  <div class="dl">
+    <div><span>香港天气（官方，推送警告）</span><span class="v">我的天文台 MyObservatory</span></div>
+    <div><span>澳门天气（官方）</span><span class="v">澳門氣象局 SMG</span></div>
+    <div><span>铁路购票 / 候补</span><span class="v">铁路 12306</span></div>
+    <div><span>深圳公园停车预约</span><span class="v">美丽深圳（公众号）</span></div>
+    <div><span>无人机外卖</span><span class="v">美团外卖</span></div>
+    <div><span>无人驾驶（南山）</span><span class="v">萝卜快跑（小程序）</span></div>
+    <div><span>港澳导航（比高德准）</span><span class="v">Google Maps</span></div>
+    <div><span>澳门巴士报站</span><span class="v">DSAT</span></div>
+  </div>
+
+  <h3 class="sub">交通卡怎么付</h3>
+  <div class="dl">
+    <div><span>深圳地铁</span><span class="v">微信乘车码（✅ 已确认）</span></div>
+    <div><span>香港港铁 / 巴士</span><span class="v">八达通 或 支付宝（走紫色闸机）</span></div>
+    <div><span>香港天星小轮</span><span class="v">八达通 或 现金（HK$5.0 平日）</span></div>
+    <div><span>澳门公交 / 轻轨</span><span class="v">公交 MOP 6 现金或扫码；轻轨不能用乘车码</span></div>
+    <div><span>上海地铁</span><span class="v">乘车码，按次付（不到一日票价）</span></div>
+    <div><span>广州地铁</span><span class="v">乘车码</span></div>
+  </div>
+  <p class="note">⚠️ 深圳地铁<b>支付宝的可用性查不到官方来源</b>，微信已确认可用，直接用微信别赌支付宝。</p>
+</section>
+
+<section class="sec" id="wish" data-panel="wish">
+  <div class="sec-hd"><h2>期望</h2><span class="n">这次没排进，但值得单独留一次</span></div>
+  <p class="note">这些地方都符合你的口味——人文、自然、慢逛——只是这 10 天的动线装不下。留个底，下次直接从这里挑。</p>
+
+  <h3 class="sub" style="margin-top:22px">上海</h3>
+  <div class="blk eat"><ul>
+    <li><b>上海博物馆东馆（青铜馆）</b>　免费、散客免预约（身份证从 B1 东门刷证入馆），<b>10:00–18:00、17:00 停止入场、周二闭馆</b>——它是上海唯一周一开的大馆，只有你 9/28 那天能去。<b>但代价两条：</b>① 它<b>从 9/28 起</b>书法馆、绘画馆、海上书画馆闭馆调整，那天剩下的主要是青铜（商周文明，<b>不是上海</b>）；② 免预约＝没有客流闸门，周一叠中秋假期尾，可能很挤。<b>要它就要砍掉整条衡复步行。</b></li>
+    <li><b>中华艺术宫 / PSA 当代艺术博物馆</b>　常设展都免费。PSA 由发电厂改造，建筑本身就是内容。</li>
+    <li><b>上博人民广场馆</b>（¥148）· <b>浦东美术馆 MAP</b>（¥100–150）· <b>龙美术馆西岸馆</b>（¥180–220）　这三个是上海真正有分量的特展，代价是票价。</li>
+    <li><b>朱家角 / 七宝老街</b>　水乡。朱家角单程 1.5–2 小时，要占大半天。</li>
+    <li><b>衡复的另外半张脸</b>：黑石公寓、衡山坊——都在你走过的路上，只是没停。</li>
+  </ul></div>
+
+  <h3 class="sub">深圳</h3>
+  <div class="blk eat"><ul>
+    <li><b>光明区</b>　深圳科学技术馆（¥50）+ 光明农场大观园 + 光明招待所乳鸽——官方把"上午科技馆 → 下午虹桥公园 → 晚上乳鸽"定为一条经典微度假线。单程 45–60 分钟。</li>
+    <li><b>南澳第一沙滩 · 大鹏半岛</b>　较场尾、大鹏所城。⚠️ 自驾须在「深圳交警」公众号预约通行（3.3 万/日配额）——是深圳少有的"要抢"的地方。</li>
+    <li><b>南头古城</b>　免费，深圳少有的古城改造街区，人文向。</li>
+    <li><b>深圳湾日出剧场</b>　深圳唯一的真海上日出机位（面东）。要 5:00 起。</li>
+  </ul></div>
+
+  <h3 class="sub">香港</h3>
+  <div class="blk eat"><ul>
+    <li><b>香港故宫文化博物馆</b>（HK$70）· <b>M+ 博物馆</b>（HK$190）　西九这两馆是香港近年最重要的文化设施。代价是票价 + 至少 2.5 小时。</li>
+    <li><b>大屿山</b>　昂坪 360 缆车 + 天坛大佛 + <b>大澳渔村</b>（水上棚屋，香港最后的水上人家）。要一整天。</li>
+    <li><b>离岛</b>　南丫岛、长洲——从中环坐船，是香港完全另一副样子。各需半天到一天。</li>
+    <li><b>赤柱 / 石澳 / 龙脊</b>　港岛南岸的海与山，龙脊是亚洲最佳市区远足径之一。</li>
+    <li><b>庙街夜市 · 中环街市 · PMQ 元创方</b>　市井与设计。<b>中环街市就在 D6 半山扶梯的起点旁、PMQ 与大馆同在中环半山（相距数百米）——顺路可看；只有庙街夜市是真反方向。</b></li>
+  </ul></div>
+
+  <h3 class="sub">珠海</h3>
+  <div class="blk eat"><ul>
+    <li><b>外伶仃岛 / 东澳岛</b>　珠海最独特的东西。⚠️ 必须<b>住岛上</b>——去程船最早 08:40，回程末班 16:15–17:50，一日往返物理上不可能。</li>
+    <li><b>唐家湾古镇 + 会同村 + 共乐园</b>　民国首任总理唐绍仪的故乡，珠海最有底蕴的一片老村。在<b>高新区，离市区约 20 公里</b>，与情侣路反方向。</li>
+    <li><b>北山村</b>　市区里的文艺小村，免费。顺路但价值低于情侣路。</li>
+    <li><b>淇澳岛红树林 · 斗门古街 · 梅溪牌坊</b>　都在西区或离岛，各需半天以上。</li>
+  </ul></div>
+
+  <h3 class="sub">澳门</h3>
+  <div class="blk eat"><ul>
+    <li><b>路环市区</b>　澳门最慢的一站：安德鲁饼店本店、圣方济各圣堂、十月初五马路、荔枝碗船厂遗址。步行街区约 800 米、巷弄宽仅 1.5–3 米。<b>这次它和烟花占位直接冲突</b>。</li>
+    <li><b>澳门博物馆</b>（MOP 15，在大炮台上）· <b>大赛车博物馆</b>（MOP 80，东望洋街道赛是澳门独有记忆）· <b>澳门艺术博物馆 / 通讯博物馆</b>（免费）</li>
+    <li><b>澳门科学馆</b>　贝聿铭设计，建筑本身就是看点。</li>
+    <li><b>摩珀斯</b>　<b>已经列在 D8 的「建筑有看头」里了，那天顺路进中庭即可。</b></li>
+  </ul></div>
+
+  <h3 class="sub">广州</h3>
+  <div class="blk eat"><ul>
+    <li><b>陈家祠</b>（¥10）　广州最有代表性的岭南建筑。闭馆日是<b>周二</b>，10/5 周一其实开——只是你那天已经排满西关。</li>
+    <li><b>广东美术馆新馆（白鹅潭）</b>　免费、双节期间开到 21:00、11 场展览，10/5 周一法定节假日照常开。<b>它离沙面只隔 1 站地铁</b>，是我这次砍掉的（室内展品与"拍照"弱相关）。</li>
+    <li><b>广州艺术博物院 + 广东省博物馆</b>　国庆期间同期有"城脉千年""一念敦煌""青州微笑"等重磅展，粤博免费但需提前预约。</li>
+    <li><b>越秀公园 + 镇海楼（广州博物馆）+ 中山纪念堂</b>　广州老城的另一条轴线，和西关—沙面完全不重复。</li>
+    <li><b>黄埔古港 · 沙湾古镇 · 白云山</b>　各需半天。</li>
+  </ul></div>
+
+  <h3 class="sub">顺德</h3>
+  <div class="blk eat"><ul>
+    <li><b>逢简水乡</b>　明远桥、进士牌坊、游船（小船 ¥150 / 大船 ¥250）。水乡感最强的一站，<b>但要单独一个半天</b>——和清晖园+华盖路三选二。</li>
+    <li><b>清晖园内部</b>（¥12）　岭南四大名园之一。你这次只在门口拍了外墙。</li>
+    <li><b>一镇一品</b>　烧鹅在<b>勒流</b>、蒸猪在<b>均安</b>、陈村粉在<b>陈村</b>、伦教糕在<b>伦教</b>——这次你只在大良活动，其余四镇都没去。</li>
+    <li><b>岭南和园</b>（北滘，¥30）　2018 年新建的园林，不是古迹，但佛山户籍免票。</li>
+  </ul></div>
+</section>
+
+<footer>
+  <p><b>关于这份攻略</b>　信息核实日期 <b>2026-09-25</b>。所有时间、票价、开放时间、班次均来自官方公告或权威媒体报道；查不到的项一律标注「未找到可靠来源」或「待核」，未作推测。</p>
+  <p>步行里程中，武康路 1183 米、安福路 862 米、苏州河虹口段约 900 米、杨浦「工业历程」线 2.8 公里等为<b>官方公布里程</b>；其余衔接段为地图距离估算，出发前建议用高德/百度按当日时段复核。</p>
+  <p><b>出发前请务必重查</b>：台风预报（9/29–9/30）、深圳市民中心灯光秀是否恢复、皇岗口岸是否已切换新楼、澳门玫瑰堂是否重开、广州石室圣心与粤剧艺术博物馆的国庆专门公告。</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  /* ---- 待办勾选持久化 ---- */
+  var TKEY='gba-trip-2026-todo';
+  var boxes=document.querySelectorAll('.todo input[type=checkbox]');
+  try{
+    var saved=JSON.parse(localStorage.getItem(TKEY)||'{}');
+    boxes.forEach(function(b){ if(saved[b.id]) b.checked=true; });
+  }catch(e){}
+  boxes.forEach(function(b){
+    b.addEventListener('change',function(){
+      try{
+        var o=JSON.parse(localStorage.getItem(TKEY)||'{}');
+        if(b.checked) o[b.id]=1; else delete o[b.id];
+        localStorage.setItem(TKEY,JSON.stringify(o));
+      }catch(e){}
+    });
+  });
+
+  /* ---- 按日切换 ---- */
+  var main=document.getElementById('days');
+  var days=[].slice.call(main.querySelectorAll('.day'));
+  var ORDER=['overview','todo'];
+  days.forEach(function(el,i){
+    var k='d'+(i+1);
+    el.dataset.panel=k;
+    ORDER.push(k);
+    // 注入「上一天 / 下一天」
+    var h3=el.querySelector('.day-hd h3');
+    var label=h3?h3.textContent.trim():k;
+    var pg=document.createElement('div');
+    pg.className='pager';
+    var prev=document.createElement('button');
+    prev.type='button';
+    prev.innerHTML='<span class="k">上一天</span>'+label;
+    prev.setAttribute('data-go', i===0?'overview':'d'+i);
+    var nx=document.createElement('button');
+    nx.type='button'; nx.className='nx';
+    nx.innerHTML='<span class="k">下一天</span>'+(i<days.length-1?'D'+(i+2):'回到总览');
+    nx.setAttribute('data-go', i<days.length-1?'d'+(i+2):'overview');
+    pg.appendChild(prev); pg.appendChild(nx);
+    el.appendChild(pg);
+  });
+  ORDER=ORDER.concat(['booking','risks','emergency','wish']);
+  var panels=[].slice.call(document.querySelectorAll('[data-panel]'));
+  var chips=[].slice.call(document.querySelectorAll('.chip'));
+  var chipById={}; chips.forEach(function(c){ chipById[c.dataset.go]=c; });
+  var SKEY='gba-trip-2026-day';
+
+  function show(key){
+    if(ORDER.indexOf(key)<0) key='overview';
+    panels.forEach(function(p){ p.hidden = p.dataset.panel!==key; });
+    var isDay=/^d\d+$/.test(key);
+    main.hidden = !isDay;
+    chips.forEach(function(c){ c.setAttribute('aria-current', c.dataset.go===key?'true':'false'); });
+    var active=chipById[key];
+    if(active && active.scrollIntoView){ active.scrollIntoView({block:'nearest',inline:'center'}); }
+    try{ localStorage.setItem(SKEY,key); }catch(e){}
+  }
+
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-go]');
+    if(!t) return;
+    show(t.dataset.go);
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  var start='overview';
+  try{ start=localStorage.getItem(SKEY)||'overview'; }catch(e){}
+  show(start);
+})();
+</script>
