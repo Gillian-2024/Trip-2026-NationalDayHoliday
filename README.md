@@ -4,4 +4,4 @@
 
 打开方式：
 - 直接打开 `index.html`（本地、手机均可）
-- 若开启 GitHub Pages：`https://gillian-2024.github.io/Trip-2026-/`
+- 若开启 GitHub Pages：`https://gillian-2024.github.io/Trip-2026-NationalDayHoliday/`
